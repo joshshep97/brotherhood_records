@@ -1,0 +1,30 @@
+@import url(header.css);
+
+/* GLOBAL CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 1.75rem;
+    letter-spacing: 0.1em;
+}
+
+:root {
+    font-size:18px;
+
+    /* VARIABLES */
+    --main: #E30B26;
+    --secondary: #0BE3C8;
+    --white: #FFFDFD;
+    --black: #020000;
+}
+
+
+/* REUSABLE COMPONENTS */
