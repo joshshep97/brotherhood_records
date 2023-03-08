@@ -16,6 +16,20 @@
                     Products
                 </a>
             </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav__item">
+                <a href="{{url_for('main.get_products')}}" 
+                class="nav__item-link">
+                    Profile
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="{{url_for('auth.logout')}}" 
+                class="nav__item-link">
+                    Logout
+                </a>
+            </li>
+            {% else %}
             <li class="nav__item">
                 <a href="{{url_for('auth.login')}}" 
                 class="nav__item-link">
@@ -28,6 +42,7 @@
                     Register
                 </a>
             </li>
+            {% endif %}
         </ul>
     </nav>
 </header>

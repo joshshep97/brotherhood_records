@@ -9,6 +9,10 @@
     color: var(--main);
 }
 
+.header__wrapper h1 {
+    text-shadow: 0 1px #fff;
+}
+
 .nav__items {
     display: flex;
     align-items: center;

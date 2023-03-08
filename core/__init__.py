@@ -1,20 +1,28 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, current_user
 from os import path
+import os
+
+from .datebase import db
+from .models import User
 
 
-db = SQLAlchemy()
+login_manager = LoginManager()
 DB_NAME = 'database.db'
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'helloworld'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    # app configuration
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
     db.init_app(app)
 
     @app.route('/test')
     def test():
         return 'success'
+    
+    # register blueprints
 
     from .routes.main import main as main_bp
     app.register_blueprint(main_bp, url_prefix='/')
@@ -22,7 +30,16 @@ def create_app():
     from .routes.auth import auth as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
+    # if no database in filesystem, one will be created
     create_database(app)
+
+    # Create flask login instance
+    login_manager.init_app(app)
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
+    login_manager.login_view = 'auth.login'
+
 
     return app
 
