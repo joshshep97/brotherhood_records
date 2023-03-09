@@ -24,11 +24,17 @@ def create_app():
     
     # register blueprints
 
+    from .routes.api import api as api_bp
+    app.register_blueprint(api_bp, url_prefix='/api')
+
     from .routes.main import main as main_bp
     app.register_blueprint(main_bp, url_prefix='/')
 
     from .routes.auth import auth as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
+    
+    from .routes.profile import profile as profile_bp
+    app.register_blueprint(profile_bp, url_prefix='/profile')
 
     # if no database in filesystem, one will be created
     create_database(app)

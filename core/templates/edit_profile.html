@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="container">
+        <form action="" method="POST">
+            <label for="{{ attribute }}">
+                Enter {{ attribute }}
+            </label>
+            <input type="text" name="{{ attribute }}" id="{{attribute}}">
+
+            <input type="submit">
+        </form>
+    </main>
+{% endblock %}

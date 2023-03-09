@@ -1,10 +1,11 @@
+import re
+
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from ..models import User
 from .. import db
-from werkzeug.security import generate_password_hash, check_password_hash
-import re
 
 auth = Blueprint('auth', __name__)
 
@@ -34,6 +35,9 @@ def login():
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
+    # TODO:
+    # ADD EMAIL CONFIRMATION
+
     if request.method == 'POST':
         username = request.form.get('username')
         email = request.form.get('email')
@@ -81,6 +85,7 @@ def register():
             db.session.add(usr)
             db.session.commit()
             flash('Account Created Successfully', 'success')
+            return redirect(url_for('auth.login'))
     
     context={
         'title': 'Register | Brotherhood Records',
@@ -94,4 +99,5 @@ def register():
 @auth.route('/logout')
 def logout():
     logout_user()
+    flash('Logged out successfully', 'success')
     return redirect(url_for('main.index'))

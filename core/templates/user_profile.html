@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="container">
+    <table class="profile__table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    {{ user.name }}
+                </th>
+                {% if current_user.id == selected_user.id %}
+                <th>
+                    <a href="{{url_for('profile.edit_name', id=current_user.id)}}">
+                        edit
+                    </a>
+                </th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Username
+                </td>
+                <td>
+                    {{ user.username }}
+                </td>
+                <td>
+                    {% if current_user.id == selected_user.id %}
+                    <a href="/">
+                        edit
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>
+                    E-mail
+                </td>
+                <td>
+                    {{ user.email }}
+                </td>
+                <td>
+                    {% if current_user.id == selected_user.id %}
+                    <a href="{{url_for('profile.edit_email', id=current_user.id)}}">
+                        edit
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>
+                    Favourite Genre 1
+                </td>
+                <td>
+                    {{ user.favourite_genre_one }}
+                </td>
+                {% if current_user.id == selected_user.id %}
+                <td>
+                    <a href="/">
+                        edit
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>
+                    Favourite Genre 2
+                </td>
+                <td>
+                    {{ user.favourite_genre_two }}
+                </td>
+                {% if current_user.id == selected_user.id %}
+                <td>
+                    <a href="/">
+                        edit
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>
+                    Favourite Genre 3
+                </td>
+                <td>
+                    {{ user.favourite_genre_three }}
+                </td>
+                {% if current_user.id == selected_user.id %}
+                <td>
+                    <a href="/">
+                        edit
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+
+</main>
+{% endblock %}

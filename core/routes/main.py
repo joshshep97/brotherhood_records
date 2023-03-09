@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template
-from flask_login import current_user
+from flask import Blueprint, render_template, redirect, url_for
+from flask_login import login_required, current_user
+
+from ..models import User
 
 main = Blueprint('main', __name__)
 
@@ -15,7 +17,7 @@ def index():
         **context
     )
 
-@main.route('products')
+@main.route('/products')
 def get_products():
 
     context={
@@ -26,3 +28,5 @@ def get_products():
         'products.html',
         **context
     )
+
+
