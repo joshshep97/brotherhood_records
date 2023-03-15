@@ -1,0 +1,39 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST">
+        <label for="title">
+            Enter title
+        </label>
+        <input type="text" name="title" id="title">
+
+        <label for="artist">
+            Enter artist
+        </label>
+        <input type="text" name="artist" id="artist">
+
+        <label for="genre">
+            Enter genre
+        </label>
+        <input type="text" name="genre" id="genre">
+
+        <label for="price">
+            Enter price
+        </label>
+        <input type="text" name="price" id="price">
+
+        <label for="release_year">
+            Enter release year
+        </label>
+        <input type="text" name="release_year" id="release_year">
+
+        <label for="image_url">
+            Enter image url
+        </label>
+        <input type="text" name="image_url" id="image_url">
+        
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}

@@ -1,7 +1,7 @@
 import re
 
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from flask_login import login_user, logout_user, login_required, current_user
+from flask_login import login_user, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from ..models import User
@@ -21,7 +21,12 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Logged in', 'success')
                 login_user(user, remember=True)
-                return redirect(url_for('main.index'))
+                if user.is_admin == True:
+                    # add admin home
+                    return redirect(url_for('admin.index'))
+                    flash('Logged in as admin', 'success')
+                else:
+                    return redirect(url_for('main.index'))
             else:
                 flash('Password is incorrect', 'error')
         else: 
@@ -39,8 +44,8 @@ def register():
     # ADD EMAIL CONFIRMATION
 
     if request.method == 'POST':
-        username = request.form.get('username')
-        email = request.form.get('email')
+        username = request.form.get('username').lower()
+        email = request.form.get('email').lower()
         password = request.form.get('password')
         password_confirmation = request.form.get('password_confirmation')
 

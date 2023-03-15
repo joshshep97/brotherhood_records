@@ -17,16 +17,6 @@ def index():
         **context
     )
 
-@main.route('/products')
-def get_products():
 
-    context={
-        'title': 'Products | Home'
-    }
-
-    return render_template(
-        'products.html',
-        **context
-    )
 
 

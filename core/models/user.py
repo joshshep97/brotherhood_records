@@ -1,6 +1,7 @@
-from .datebase import db
 from flask_login import UserMixin
 import datetime
+
+from .import db
 
 class User(UserMixin, db.Model):
     # required

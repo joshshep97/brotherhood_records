@@ -1,0 +1,15 @@
+.product_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3rem 0;
+    border-bottom: 2px solid var(--sage)
+}
+
+.product_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} .product_details p {
+    padding: .8rem 0;
+}

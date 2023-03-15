@@ -1,5 +1,6 @@
 @import url(header.css);
 @import url(profile.css);
+@import url(product_list.css);
 
 /* GLOBAL CSS */
 * {
@@ -21,14 +22,17 @@ h1 {
     font-size:18px;
 
     /* VARIABLES */
-    --main: #E30B26;
-    --secondary: #0BE3C8;
-    --white: #FFFDFD;
-    --black: #020000;
+    --main: #E2CD6D;
+    --secondary: #83B799;
+    --white: #E4D8B4;
+    --black: #272324;
+    --warning: #E86F68;
+    --sage: #C2B28F
 }
 
 .container {
     padding: 1rem 4rem;
+    margin: 2rem 4rem;
 }
 
 
