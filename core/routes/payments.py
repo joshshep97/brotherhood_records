@@ -11,6 +11,10 @@ stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 @payments.route('/create-checkout-session/', methods=['GET', 'POST'])
 def create_checkout_session():
     try:
-        pass
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+            'price':
+            ]
+        )
     except Exception as e:
         return str(e)

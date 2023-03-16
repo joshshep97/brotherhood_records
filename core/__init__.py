@@ -56,7 +56,9 @@ def create_app():
     app.app_context().push()
 
     # if admin account doesn't exist, one will be created
-    admin_exists = bool(User.query.filter_by(username = 'admin').first())
+    admin_exists = bool(User.query.filter_by(
+        username = 'admin'
+    ).first())
     if not admin_exists:
         admin = User(
                     username = os.environ.get('admin_username'),

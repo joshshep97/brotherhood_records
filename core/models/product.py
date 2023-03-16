@@ -21,6 +21,11 @@ class Product(db.Model):
         db.Float,
         nullable=False
     )
+    
+    price_id = db.Column(
+        db.String,
+        nullable=False
+    )
 
     release_year = db.Column(
         db.Integer,
@@ -39,6 +44,7 @@ class Product(db.Model):
         'artist': self.artist,
         'genre': self.genre,
         'price': self.price,
+        'price_id': self.price_id,
         'release_year': self.release_year,
         'img_url': self.img_url
     }

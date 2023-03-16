@@ -3,7 +3,7 @@
 {% block content %}
     <main class="container">
         <img src="{{product.img_url}}"/>
-        <form action="/create-checkout-session" method="post">
+        <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post">
             <input type="Submit" value="Buy Now!">
         </form>
     </main>

@@ -12,7 +12,8 @@ profile = Blueprint('profile', __name__)
 def get_profile(id):
 
     if id != current_user.id:
-        return redirect(url_for('profile.get_profile', id=current_user.id))
+        return redirect(url_for('profile.get_profile', 
+                                id=current_user.id))
     else:
         context = {
             'title': 'Your Profile',
@@ -25,21 +26,28 @@ def get_profile(id):
                 **context
             )
         else:
-            flash('You must be loggin in to view this page', 'error')
+            flash(
+                'You must be loggin in to view this page', 
+                'error'
+            )
             return redirect(url_for('main.index'))
     
 
 @login_required
-@profile.route('/<int:id>/edit_name', methods=['GET', 'POST'])
+@profile.route('/<int:id>/edit_name', 
+               methods=['GET', 'POST'])
 def edit_name(id):
-    selected_user = User.query.filter_by(id=id).first()
+    selected_user = User.query.filter_by(
+        id=id
+    ).first()
 
     if request.method == 'POST':
         selected_user.name = request.form.get('name')
         db.session.commit()
         flash('Name Changed Successfully')
 
-        return redirect(url_for('profile.get_profile', id = current_user.id))
+        return redirect(url_for('profile.get_profile', 
+                                id = current_user.id))
     
     context = {
         'title': 'Edit Name',
@@ -54,16 +62,20 @@ def edit_name(id):
     )
 
 @login_required
-@profile.route('/<int:id>/edit_email', methods=['GET', 'POST'])
+@profile.route('/<int:id>/edit_email', 
+               methods=['GET', 'POST'])
 def edit_email(id):
-    selected_user = User.query.filter_by(id=id).first()
+    selected_user = User.query.filter_by(
+        id=id
+    ).first()
 
     if request.method == 'POST':
         selected_user.email = request.form.get('email')
         db.session.commit()
         flash('Email Changed Successfully')
 
-        return redirect(url_for('profile.get_profile', id = current_user.id))
+        return redirect(url_for('profile.get_profile', 
+                                id = current_user.id))
     
     context = {
         'title': 'Edit Email',
@@ -78,17 +90,26 @@ def edit_email(id):
     )
 
 @login_required
-@profile.route('/<int:id>/edit_username', methods=['GET', 'POST'])
+@profile.route('/<int:id>/edit_username', 
+               methods=['GET', 'POST'])
 def edit_username(id):
     if id != current_user.id:
-        return redirect(url_for('profile.edit_username', id=current_user.id))
+        return redirect(
+            url_for('profile.edit_username', 
+                    id=current_user.id)
+        )
     else:
         if request.method == 'POST':
-            current_user.username = request.form.get('username')
+            current_user.username = request.form.get(
+                'username'
+            )
             db.session.commit()
             flash('Username Changed Successfully')
 
-            return redirect(url_for('profile.get_profile', id = current_user.id))
+            return redirect(
+                url_for('profile.get_profile', 
+                        id = current_user.id)
+            )
         
         context = {
             'title': 'Edit Username',

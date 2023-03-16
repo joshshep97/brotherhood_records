@@ -1,6 +1,8 @@
 from ..models.product import Product
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect
+import stripe
+import os
 
 product = Blueprint('product', __name__)
 
@@ -34,3 +36,34 @@ def product_page(id):
         **context
     )
 
+DOMAIN = 'http://127.0.0.1:5000'
+
+stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+
+@product.route('/create-checkout-session/<int:id>/', methods=['GET', 'POST'])
+def create_checkout_session(id):
+    product = Product.query.filter_by(id=id).first()
+    price_id = product.price_id
+
+    try:
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                'price': price_id,
+                'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url=DOMAIN + '/success.html',
+            cancel_url=DOMAIN + '/cancel.html',
+        )
+    except Exception as e:
+        return str(e)
+
+    return redirect(checkout_session.url, code=303)
+
+# to do 
+# - add price_id to Product model
+# - add routes & templates for success and cancel
+# - edit S+C urls for URL_FOR
+# - add products on stripe dashboard

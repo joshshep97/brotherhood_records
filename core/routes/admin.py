@@ -32,6 +32,7 @@ def add_record():
             artist = request.form.get('artist').title()
             genre = request.form.get('genre').title()
             price = float(request.form.get('price'))
+            price_id = request.form.get('price_id')
             release_year = int(request.form.get('release_year'))
             image_url = request.form.get('image_url')
 
@@ -40,6 +41,7 @@ def add_record():
                 artist = artist,
                 genre = genre,
                 price = price,
+                price_id = price_id,
                 release_year = release_year,
                 img_url = image_url
             )
