@@ -63,7 +63,6 @@ def create_checkout_session(id):
     return redirect(checkout_session.url, code=303)
 
 # to do 
-# - add price_id to Product model
 # - add routes & templates for success and cancel
 # - edit S+C urls for URL_FOR
 # - add products on stripe dashboard
