@@ -11,22 +11,22 @@ profile = Blueprint('profile', __name__)
 @profile.route('/<int:id>/')
 def get_profile(id):
 
-    selected_user = User.query.filter_by(id=id).first()
-    
-    context = {
-        'title': 'Your Profile',
-        'user': current_user,
-        'selected_user': selected_user
-    }
-
-    if current_user.is_authenticated:
-        return render_template(
-            'user_profile.html',
-            **context
-        )
+    if id != current_user.id:
+        return redirect(url_for('profile.get_profile', id=current_user.id))
     else:
-        flash('You must be loggin in to view this page', 'error')
-        return redirect(url_for('main.index'))
+        context = {
+            'title': 'Your Profile',
+            'user': current_user,
+        }
+
+        if current_user.is_authenticated:
+            return render_template(
+                'user_profile.html',
+                **context
+            )
+        else:
+            flash('You must be loggin in to view this page', 'error')
+            return redirect(url_for('main.index'))
     
 
 @login_required
@@ -77,7 +77,31 @@ def edit_email(id):
         **context
     )
 
+@login_required
+@profile.route('/<int:id>/edit_username', methods=['GET', 'POST'])
+def edit_username(id):
+    if id != current_user.id:
+        return redirect(url_for('profile.edit_username', id=current_user.id))
+    else:
+        if request.method == 'POST':
+            current_user.username = request.form.get('username')
+            db.session.commit()
+            flash('Username Changed Successfully')
+
+            return redirect(url_for('profile.get_profile', id = current_user.id))
+        
+        context = {
+            'title': 'Edit Username',
+            'user': current_user,
+            'selected_user': current_user,
+            'attribute': 'username',
+        }
+
+        return render_template(
+            'edit_profile.html',
+            **context
+        )
+
 # TO DO:
-# EDIT USERNAME
 # ADD FAVORITE GENRES
 # CHANGE PASSWORD
