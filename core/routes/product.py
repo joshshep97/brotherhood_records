@@ -22,7 +22,7 @@ def get_products():
         **context
     )
 
-@product.route('/<int:id>')
+@product.route('/<int:id>/')
 def product_page(id):
     selected_product = Product.query.filter_by(id=id).first()
 
@@ -40,7 +40,7 @@ DOMAIN = 'http://127.0.0.1:5000'
 
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 
-@product.route('/create-checkout-session/<int:id>/', methods=['GET', 'POST'])
+@product.route('/<int:id>/create-checkout-session/', methods=['GET', 'POST'])
 def create_checkout_session(id):
     product = Product.query.filter_by(id=id).first()
     price_id = product.price_id
@@ -54,15 +54,11 @@ def create_checkout_session(id):
                 },
             ],
             mode='payment',
-            success_url=DOMAIN + '/success.html',
-            cancel_url=DOMAIN + '/cancel.html',
+            success_url=DOMAIN + '/success',
+            cancel_url=DOMAIN + '/cancelled',
         )
     except Exception as e:
         return str(e)
 
     return redirect(checkout_session.url, code=303)
 
-# to do 
-# - add routes & templates for success and cancel
-# - edit S+C urls for URL_FOR
-# - add products on stripe dashboard

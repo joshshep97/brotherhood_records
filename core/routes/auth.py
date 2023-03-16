@@ -10,7 +10,7 @@ from .. import db
 auth = Blueprint('auth', __name__)
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/login/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -38,7 +38,7 @@ def login():
         user = current_user
     )
 
-@auth.route('/register', methods=['GET', 'POST'])
+@auth.route('/register/', methods=['GET', 'POST'])
 def register():
     # TODO:
     # ADD EMAIL CONFIRMATION
@@ -101,7 +101,7 @@ def register():
         **context
     )
 
-@auth.route('/logout')
+@auth.route('/logout/')
 def logout():
     logout_user()
     flash('Logged out successfully', 'success')

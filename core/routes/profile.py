@@ -34,7 +34,7 @@ def get_profile(id):
     
 
 @login_required
-@profile.route('/<int:id>/edit_name', 
+@profile.route('/<int:id>/edit_name/', 
                methods=['GET', 'POST'])
 def edit_name(id):
     selected_user = User.query.filter_by(
@@ -62,7 +62,7 @@ def edit_name(id):
     )
 
 @login_required
-@profile.route('/<int:id>/edit_email', 
+@profile.route('/<int:id>/edit_email/', 
                methods=['GET', 'POST'])
 def edit_email(id):
     selected_user = User.query.filter_by(
@@ -90,7 +90,7 @@ def edit_email(id):
     )
 
 @login_required
-@profile.route('/<int:id>/edit_username', 
+@profile.route('/<int:id>/edit_username/', 
                methods=['GET', 'POST'])
 def edit_username(id):
     if id != current_user.id:

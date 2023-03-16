@@ -64,7 +64,7 @@ def add_record():
         **context
     )
 
-@admin.route('/edit_record/<int:id>')
+@admin.route('/edit_record/<int:id>/')
 def edit_record(id):
     selected_record = Product.query.filter_by(id=id).first()
 
