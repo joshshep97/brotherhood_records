@@ -10,11 +10,13 @@ product = Blueprint('product', __name__)
 
 @product.route('/')
 def get_products():
-    products = Product.query.all()
+    sort = request.args.get('sort')
 
     context={
         'title': 'Products | Home',
-        'products': products
+        'products': Product.query
+        .order_by(sort)
+        .all(),
     }
 
     return render_template(

@@ -2,15 +2,27 @@
 
 {% block content %}
     <main class="container">
-        {% for product in products %}
+        <div class="sort__form-wrapper">
+            <form action="" method="GET" class="sort__form">
+                <select name="sort" id="sort">
+                    <option value="artist">Artist Name</option>
+                    <option value="title">Title</option>
+                    <option value="price">Price (L-H)</option>
+                </select>
+                <input type="submit" value="Sort Products">
+            </form>
+        </div>
+        {% for product in products  %}
         <div class="product_wrapper">
-            <div class="product_img">
-                <img src="{{product.img_url}}" alt="">
+            <div class="product__img-wrapper">
+                <img src="{{product.img_url}}" 
+                alt="{{product.title}}, {{product.artist}}" 
+                class="product__img">
             </div>
             <div class="product_details">
                     <p>{{product.title}}</p>
                     <p>{{product.artist}}</p>
-                    <p>{{product.price}}</p>
+                    <p>£{{product.price}}</p>
             </div>
             <div class="product_link">
                 <a href="{{url_for('product.product_page', id=product.id)}}" class="cta">

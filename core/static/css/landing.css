@@ -122,25 +122,11 @@ div.cta {
     padding: 1rem 0;
     text-align: center;
 
-    background-color: var(--secondary);
+    background-color: var(--dark);
     color: var(--main);
 }
 
 .footer {
     height: 60vh;
     width: 100%;
-}
-
-.divider-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.divider {
-    width: 0%;
-    height:0;
-    border-top: 10px solid var(--dark);
-    border-left: 900px solid transparent;
-    border-bottom: 1px solid transparent;
 }

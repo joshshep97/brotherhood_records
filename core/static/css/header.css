@@ -26,10 +26,7 @@
 .nav__item-link {
     padding: 1rem 2.5rem;
 
-    text-decoration: none;
     font-size: 1.2rem;
-
-    color: var(--dark);
 } .nav__item-link:hover {
     background-color: var(--dark);
     color: var(--main)

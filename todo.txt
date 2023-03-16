@@ -1,0 +1,13 @@
+BACK-END:
+    Add favourite genres
+    change password
+    add genre filtering
+    add filter for top artists
+    add model for Collection
+        add Collection to profile page
+
+DESIGN:
+    create footer
+    finish product details page
+    design scrollbar
+    link landing page CTA's

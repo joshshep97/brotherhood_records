@@ -1,0 +1,57 @@
+/* div {
+    border: 1px solid black;
+} */
+
+.product_wrapper {
+
+    /* contains all information for each product
+        img
+        details (title, artist, price)
+        Details link
+    */
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    height: 20rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.08rem;
+
+    background-color: #fbfbfb;
+    color: var(--dark);
+} .product_wrapper a {
+    color: var(--secondary);
+}
+.product_wrapper a:hover {
+    text-decoration: underline;
+    color: var(--dark);
+}
+
+.product_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+} .product_details p {
+    padding: .8rem 0;
+} 
+
+.product__img-wrapper {
+    height: 90%;
+    aspect-ratio: 1 / 1;
+} .product__img {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.sort__form-wrapper {
+    padding: 1rem 0;
+}
+
+.sort__form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,6 +1,6 @@
 @import url(header.css);
 @import url(profile.css);
-@import url(product_list.css);
+@import url(product.css);
 @import url(landing.css);
 
 /* GLOBAL CSS */
@@ -19,21 +19,17 @@ h1 {
     letter-spacing: 0.1em;
 }
 
+a {
+    text-decoration: none;
+    color: var(--dark)
+}
+
 :root {
     font-size:18px;
 
     /* VARIABLES */
-    /* --main: #E2CD6D;
-    --secondary: #83B799;
-    --white: #E4D8B4;
-    --black: #272324;
-    --warning: #E86F68;
-    --sage: #C2B28F */
-
-    --dark: #442E1Eff;
-    --field-drab: #604C2Aff;
     --main: #FFF;
-    --caf-noir: #4A3014ff;
+    --dark: #442E1Eff;
     --secondary: #AD7817ff;
 }
 
@@ -47,13 +43,45 @@ h1 {
 
 label {
     display: block;
+    font-size: 1.2rem;
+}
+
+input[type='text'], 
+input[type='password'],
+input[type='email'],
+input[type='submit'],
+select {
+    padding: 1rem 1rem;
+    margin: 8px 0;
+    font-size: 1.25rem;
+    color: var(--dark);
 }
 
 input[type='text'], 
 input[type='password'],
 input[type='email'] {
     width: 100%;
-    padding: 1rem 1rem;
-    margin: 8px 0;
-    font-size: 1.25rem;
+}
+
+input[type='submit'] {
+    width: 25%;
+    background-color: var(--dark);
+    color: var(--main)
+}
+select {
+    width: 50%;
+}
+
+.divider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    width: 0%;
+    height:0;
+    border-top: 10px solid var(--dark);
+    border-left: 900px solid transparent;
+    border-bottom: 1px solid transparent;
 }
