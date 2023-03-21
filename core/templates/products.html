@@ -2,6 +2,36 @@
 
 {% block content %}
     <main class="container">
+        <div class="genre__search-wrapper">
+            <div class="genre__search-title">
+                <h3>
+                    Search your favourite genres
+                </h3>
+            </div>
+            <div class="genre__search-links">
+                <a href="{{url_for('product.product_by_genre', genre='Rock')}}" class="genre__search-link">
+                    Rock &amp; Metal
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Pop')}}" class="genre__search-link">
+                    Pop
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Jazz')}}" class="genre__search-link">
+                    Jazz
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Classical')}}" class="genre__search-link">
+                    Classical
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Hip Hop')}}" class="genre__search-link">
+                    Hip Hop
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Dance')}}" class="genre__search-link">
+                    Dance
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Punk')}}" class="genre__search-link">
+                    Punk
+                </a>
+            </div>
+        </div>
         <div class="sort__form-wrapper">
             <form action="" method="GET" class="sort__form">
                 <select name="sort" id="sort">
@@ -12,6 +42,7 @@
                 <input type="submit" value="Sort Products">
             </form>
         </div>
+        
         {% for product in products  %}
         <div class="product_wrapper">
             <div class="product__img-wrapper">

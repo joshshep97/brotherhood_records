@@ -1,10 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <main class="container">
-        <img src="{{product.img_url}}"/>
-        <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post">
-            <input type="Submit" value="Buy Now!">
-        </form>
-    </main>
+    <div class="product_wrapper">
+            <div class="product__img-wrapper">
+                <img src="{{product.img_url}}" 
+                alt="{{product.title}}, {{product.artist}}" 
+                class="product__img">
+            </div>
+            <div class="product_details">
+                    <p>{{product.title}}</p>
+                    <p>{{product.artist}}</p>
+                    <p>£{{product.price}}</p>
+            </div>
+        </div>
+        <div class="buy_now">
+            <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post" class="buy_form">
+        <input type="submit" value="Buy Now!" class="buy_btn">
+    </form>
+        </div>
 {% endblock %}
+
+<!-- <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post" class="buy_now">
+            <input type="submit" value="Buy Now!">
+        </form> -->
+
+
+// how to make a product page in html and css?

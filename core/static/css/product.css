@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     padding: 1rem 0;
     margin: 1rem 0;
     height: 20rem;
@@ -46,6 +47,35 @@
     aspect-ratio: 1 / 1;
 }
 
+.genre__search-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+} .genre__search-title {
+    align-self: center;
+} .genre__search-title h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    letter-spacing: 0.03em;
+}
+
+.genre__search-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    height: 5rem;
+    
+    background-color: var(--main);
+} .genre__search-link{
+    font-size: 1.2rem;
+}.genre__search-link:hover {
+    color: #020202;
+    text-decoration: underline;
+}
+
 .sort__form-wrapper {
     padding: 1rem 0;
 }
@@ -54,4 +84,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.buy_now {
+    text-align: center;
 }

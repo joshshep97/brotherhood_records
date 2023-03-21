@@ -1,12 +1,12 @@
-from ..models.product import Product
+from ..models import Product
 
 from flask import Blueprint, render_template, request, redirect
+
 import stripe
 import os
+from flask_login import current_user
 
 product = Blueprint('product', __name__)
-
-
 
 @product.route('/')
 def get_products():
@@ -26,7 +26,9 @@ def get_products():
 
 @product.route('/<int:id>/')
 def product_page(id):
-    selected_product = Product.query.filter_by(id=id).first()
+    selected_product = Product.query.filter_by(
+        id=id
+    ).first()
 
     context = {
         'title': selected_product.title,
@@ -37,6 +39,24 @@ def product_page(id):
         'product_page.html',
         **context
     )
+
+@product.route('/genre/<genre>')
+def product_by_genre(genre):
+    sort = request.args.get('sort')
+
+    context={
+        'title': 'Products | Home',
+        'products': Product.query
+        .filter_by(genre=genre)
+        .order_by(sort)
+        .all(),
+    }
+
+    return render_template(
+        'products.html',
+        **context
+    )
+
 
 DOMAIN = 'http://127.0.0.1:5000'
 
@@ -49,6 +69,12 @@ def create_checkout_session(id):
 
     try:
         checkout_session = stripe.checkout.Session.create(
+            customer_email = current_user.email,
+            submit_type='pay',
+            billing_address_collection='auto',
+            shipping_address_collection={
+            'allowed_countries': ['GB']
+            },
             line_items=[
                 {
                 'price': price_id,
@@ -62,5 +88,8 @@ def create_checkout_session(id):
     except Exception as e:
         return str(e)
 
-    return redirect(checkout_session.url, code=303)
+    return redirect(
+        checkout_session.url,
+        code=303
+    )
 

@@ -7,18 +7,26 @@
         </div> -->
         <div class="hero__wrapper">
             <div class="hero__genres-wrapper">
-                <div class="hero__genres-card">
-                    <p>Rock &amp; Metal</p>
-                </div>
-                <div class="hero__genres-card">
-                    <p>Pop</p>
-                </div>
-                <div class="hero__genres-card">
-                    <p>Classical</p>
-                </div>
-                <div class="hero__genres-card">
-                    <p>Jazz</p>
-                </div>
+                <a href="{{url_for('product.product_by_genre', genre='Rock')}}" class="hero__genres-link">
+                    <div class="hero__genres-card">
+                        <p>Rock &amp; Metal</p>
+                    </div>
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Pop')}}" class="hero__genres-link">
+                    <div class="hero__genres-card">
+                        <p>Pop</p>
+                    </div>
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Classical')}}" class="hero__genres-link">
+                    <div class="hero__genres-card">
+                        <p>Classical</p>
+                    </div>
+                </a>
+                <a href="{{url_for('product.product_by_genre', genre='Jazz')}}" class="hero__genres-link">
+                    <div class="hero__genres-card">
+                        <p>Jazz</p>
+                    </div>
+                </a>
             </div>
             <div class="hero__img-wrapper">
             </div>
