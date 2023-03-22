@@ -30,7 +30,7 @@ a {
 
     /* VARIABLES */
     --main: #FFF;
-    --dark: #442E1Eff;
+    --dark: rgb(51, 2, 90);
     --secondary: #AD7817ff;
 }
 

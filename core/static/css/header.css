@@ -9,10 +9,6 @@
     color: var(--dark);
 }
 
-.header__wrapper h1 {
-    text-shadow: 0 1px #fff;
-}
-
 .nav__items {
     display: flex;
     align-items: center;
@@ -21,12 +17,12 @@
 
 .nav__item {
     list-style-type: none;
-}
-
-.nav__item-link {
+} .nav__item-link {
     padding: 1rem 2.5rem;
 
     font-size: 1.2rem;
+
+    transition: all 0.5s;
 } .nav__item-link:hover {
     background-color: var(--dark);
     color: var(--main)
