@@ -6,6 +6,5 @@ BACK-END:
         add Collection to profile page
 
 DESIGN:
-    create footer
     design scrollbar
     make responsive

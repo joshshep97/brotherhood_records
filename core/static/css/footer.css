@@ -1,0 +1,123 @@
+/* footer, footer > div, ul {
+    border: 1px solid #000;
+} */
+
+footer {
+    background-color: #343434;
+    color: #fff;
+    padding: .8rem 0;
+    text-align: center;
+}
+
+.footer__nav-title,
+.footer__socials-title {
+    padding: .5rem 3rem;
+    font-size: 1.2rem;
+}
+
+.footer__nav-wrapper,
+.footer__socials-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem 2rem 1rem 3rem;
+
+    border-bottom: 1px solid #fcfcfc;
+}
+
+.footer__nav-artists {
+    grid-column: 1 / span 1;
+}
+.footer__nav-genre {
+    grid-column: 2 / span 1;       
+}
+.footer__nav-about {
+    grid-column: 3 / span 1;
+}
+
+.footer__nav-list {
+    list-style-type: none; 
+    padding: .5rem 3rem;   
+}
+.footer__nav-item {
+    padding: .5rem 0;
+}
+.footer__nav-link {
+    color: #ddd;
+    font-size: 1rem;
+}
+
+.footer__socials-content {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+
+    list-style-type: none;
+
+    border-bottom: 1px solid #fcfcfc;
+}
+
+.footer__socials-link {
+    color: var(--main);
+    padding: .5rem 3rem;
+}
+
+.footer__copy-wrapper,
+.footer__notice-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 6rem;
+
+    border-bottom: 1px solid #fcfcfc;
+} 
+
+.footer__copy-content,
+.footer__notice-content {
+    text-align: center;
+    line-height: 1.5rem;
+    letter-spacing: 0.08rem;
+    font-weight: 400;
+}
+
+.footer__copy-wrapper {
+    padding: 1rem;
+} .footer__copy-content {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+}
+
+
+
+
+
+/* 
+
+    1. footer__nav
+    Top Artists  |  Shop by genre  |  About Us
+
+        Artist_1 |    Rock        |    email
+        Artist_2 |    Punk        |    phone
+        Artist_3 |    Hip Hop     |    Privacy 
+        Artist_4 |    Jazz        |    Work with Us
+        Artist_5 |    Metal
+    
+        ----------------------------------------------
+        2. footer__socials
+        --Social Media--
+
+        Facebook |   Twitter     |     Instagram
+
+        ----------------------------------------------
+        3. footer__copy
+        Copyright c Joshua Shepherd 2023
+        ----------------------------------------------
+        4. footer__notice
+        This is a web development project and not an active company
+        It uses a Stripe test account
+        If you want to test a transaction please use one of these cards
+        ----------------------------------------------
+
+
+*/

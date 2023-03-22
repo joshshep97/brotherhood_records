@@ -63,7 +63,10 @@ def create_app():
         admin = User(
                     username = os.environ.get('admin_username'),
                     email = os.environ.get('admin_email'),
-                    password = generate_password_hash(os.environ.get('admin_password'), method='sha256'),
+                    password = generate_password_hash(
+                        os.environ.get('admin_password'), 
+                        method='sha256'
+                    ),
                     is_admin = True,
                     name = 'Admin'
                 )
