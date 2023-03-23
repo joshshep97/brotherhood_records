@@ -21,7 +21,7 @@ profile = Blueprint('profile', __name__)
 @profile.route('/<int:id>/', methods=['GET', 'POST'])
 def get_profile(id):
     if request.method == 'POST':
-        genre = request.form.get('genre')
+        genre = request.form.get('genre').title( )
 
         f_genre = FavoriteGenre(name=genre, user=current_user)
 

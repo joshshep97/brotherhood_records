@@ -63,9 +63,10 @@
     </div>
 
     <form class="add_genre" method="POST">
-        <input type="text" name="genre" id="genre" placeholder="add a genre">
+        <input type="text" name="genre" id="genre_input" placeholder="add a genre" autocomplete="off">
+        <div id="suggestion" title="press enter to select"></div>
 
-        <input type="submit">
+        <input type="submit" id="submit_genre" disabled>
     </form>
 
 

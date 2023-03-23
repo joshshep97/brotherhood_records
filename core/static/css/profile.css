@@ -25,3 +25,12 @@ td {
 } .profile__password-link:hover {
     text-decoration: underline;
 }
+
+#suggestion {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.08rem;
+    padding: 0.5rem 2rem;
+
+    background-color: #fafafa;
+}
