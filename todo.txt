@@ -8,3 +8,5 @@ BACK-END:
 DESIGN:
     design scrollbar
     make responsive
+    Design flash and add close btn
+    add dynamic password tips for reg

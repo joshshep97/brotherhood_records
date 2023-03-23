@@ -28,9 +28,9 @@ def login():
                 else:
                     return redirect(url_for('main.index'))
             else:
-                flash('Password is incorrect', 'error')
+                flash('Incorrect credentials, please try again', 'error')
         else: 
-            flash('User does not exist', 'error')
+            flash('Incorrect credentials, please try again', 'error')
 
     return render_template(
         'login.html',
@@ -74,6 +74,9 @@ def register():
         elif re.search('[0-9]', password) is None:
             is_validated = False
             flash('Password must include at least one numbber', 'error')
+        elif re.search('["£$@#~!?"]', password) is None:
+            is_validated = False 
+            flash('Password must include one of the special characters: £ $ @ # ~ ! ?')
         elif password != password_confirmation:
             is_validated = False
             flash('passwords must match', 'error')
