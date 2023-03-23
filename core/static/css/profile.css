@@ -9,3 +9,19 @@ td {
     padding: 1rem;
     border-bottom: 1px solid #ddd;
 }
+
+.profile__password-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 0;
+} .profile__password-link {
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    font-weight: 400;
+
+    transition: all 0.5s ease-in;
+} .profile__password-link:hover {
+    text-decoration: underline;
+}

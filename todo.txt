@@ -1,5 +1,6 @@
 BACK-END:
     Add favourite genres
+        with predictive typing
     change password
     add filter for top artists
     add model for Collection

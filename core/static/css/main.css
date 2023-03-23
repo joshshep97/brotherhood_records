@@ -86,3 +86,21 @@ select {
     border-left: 900px solid transparent;
     border-bottom: 1px solid transparent;
 }
+
+/* Customize scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--main);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--dark);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

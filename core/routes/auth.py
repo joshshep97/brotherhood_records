@@ -76,7 +76,7 @@ def register():
             flash('Password must include at least one numbber', 'error')
         elif re.search('["£$@#~!?"]', password) is None:
             is_validated = False 
-            flash('Password must include one of the special characters: £ $ @ # ~ ! ?')
+            flash('Password must include one of the special characters: £ $ @ # ~ ! ?', 'error')
         elif password != password_confirmation:
             is_validated = False
             flash('passwords must match', 'error')

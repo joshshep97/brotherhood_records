@@ -8,16 +8,30 @@ from flask import (
 )
 
 from flask_login import current_user, login_required
+from werkzeug.security import check_password_hash, generate_password_hash
 
-from ..models import User
+from ..models import User, FavoriteGenre
 from ..datebase import db
+import re
 
 profile = Blueprint('profile', __name__)
 
 
 @login_required
-@profile.route('/<int:id>/')
+@profile.route('/<int:id>/', methods=['GET', 'POST'])
 def get_profile(id):
+    if request.method == 'POST':
+        genre = request.form.get('genre')
+
+        f_genre = FavoriteGenre(name=genre, user=current_user)
+
+        genre_exists = bool(FavoriteGenre.query.filter_by(user=current_user, name=f_genre.name).first())
+        
+        if genre_exists:
+            flash('You have already added this genre', 'error')
+        else:
+            db.session.add(f_genre)
+            db.session.commit()
 
     if id != current_user.id:
         return redirect(url_for('profile.get_profile', 
@@ -26,6 +40,7 @@ def get_profile(id):
         context = {
             'title': 'Your Profile',
             'user': current_user,
+            'genres': current_user.favorite_genres
         }
 
         if current_user.is_authenticated:
@@ -131,6 +146,57 @@ def edit_username(id):
             **context
         )
 
-# TO DO:
-# ADD FAVORITE GENRES
-# CHANGE PASSWORD
+@profile.route(
+    '/<int:id>/change_password/',
+    methods=['GET', 'POST']
+)
+def change_password(id):
+    if id != current_user.id:
+        return redirect(url_for(
+            'profile.change_password',
+            id=current_user.id
+        ))
+    else:
+        if request.method == 'POST':
+            current_password = request.form.get('current_password')
+            new_password = request.form.get('new_password')
+
+            if not check_password_hash(current_user.password, current_password):
+                flash('Password is incorrect', 'error')
+            else:
+                password_is_valid = False
+                if re.search('[A-Z]', new_password) is None:
+                    password_is_valid = False
+                    flash('Password must contain at least one uppercase', 'error')
+                elif re.search('[0-9]', new_password) is None:
+                    password_is_valid = False
+                    flash('Password must include at least one numbber', 'error')
+                elif re.search('["£$@#~!?"]', new_password) is None:
+                    password_is_valid = False 
+                    flash('Password must include one of the special characters: £ $ @ # ~ ! ?', 'error')
+                else:
+                    password_is_valid = True
+
+                if password_is_valid:
+                    current_user.password = generate_password_hash(
+                        new_password,
+                        method='sha256'
+                    )
+                    db.session.commit()
+                    flash('Password Changeed', 'success')
+
+                return redirect(
+                    url_for(
+                    'profile.get_profile',
+                    id=current_user.id
+                    )
+                )
+
+        context = {
+            'title': 'Change Password'
+        }
+        return render_template(
+            'change_password.html',
+            **context
+        )
+    
