@@ -8,7 +8,8 @@ from flask import (
 )
 
 from flask_login import current_user, login_required
-from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.security import (check_password_hash, 
+                               generate_password_hash)
 
 from ..models import User, FavoriteGenre
 from ..datebase import db
@@ -23,9 +24,13 @@ def get_profile(id):
     if request.method == 'POST':
         genre = request.form.get('genre').title( )
 
-        f_genre = FavoriteGenre(name=genre, user=current_user)
+        f_genre = FavoriteGenre(name=genre, 
+                                user=current_user)
 
-        genre_exists = bool(FavoriteGenre.query.filter_by(user=current_user, name=f_genre.name).first())
+        genre_exists = bool(FavoriteGenre.query.filter_by(
+            user=current_user, 
+            name=f_genre.name
+        ).first())
         
         if genre_exists:
             flash('You have already added this genre', 'error')
@@ -161,19 +166,33 @@ def change_password(id):
             current_password = request.form.get('current_password')
             new_password = request.form.get('new_password')
 
-            if not check_password_hash(current_user.password, current_password):
+            if not check_password_hash(
+                current_user.password, 
+                current_password
+            ):
                 flash('Password is incorrect', 'error')
             else:
                 password_is_valid = False
                 if re.search('[A-Z]', new_password) is None:
                     password_is_valid = False
-                    flash('Password must contain at least one uppercase', 'error')
+                    flash(
+                        'Password must contain at least one uppercase',
+                        'error'
+                    )
                 elif re.search('[0-9]', new_password) is None:
                     password_is_valid = False
-                    flash('Password must include at least one numbber', 'error')
+                    flash(
+                        'Password must include at least one numbber', 
+                        'error'
+                    )
                 elif re.search('["£$@#~!?"]', new_password) is None:
                     password_is_valid = False 
-                    flash('Password must include one of the special characters: £ $ @ # ~ ! ?', 'error')
+                    flash(
+                        '''Password must include one of the following 
+                        special characters: £ $ @ # ~ ! ?
+                        ''', 
+                        'error'
+                    )
                 else:
                     password_is_valid = True
 
