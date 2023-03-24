@@ -87,6 +87,29 @@ select {
     border-bottom: 1px solid transparent;
 }
 
+/* FLASHED MESSAGES */
+.flash__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.flash__content {
+    color: var(--main)
+}
+
+.success {
+    background-color: green;
+}
+
+.error {
+    background-color: rgb(167, 0, 0);
+}  
+
+
 /* Customize scrollbar */
 ::-webkit-scrollbar {
     width: 10px;

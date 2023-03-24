@@ -22,9 +22,9 @@ def login():
                 flash('Logged in', 'success')
                 login_user(user, remember=True)
                 if user.is_admin == True:
-                    # add admin home
-                    return redirect(url_for('admin.index'))
                     flash('Logged in as admin', 'success')
+                    return redirect(url_for('admin.index'))
+                    
                 else:
                     return redirect(url_for('main.index'))
             else:

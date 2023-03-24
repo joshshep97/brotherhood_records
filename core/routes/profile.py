@@ -37,6 +37,7 @@ def get_profile(id):
         else:
             db.session.add(f_genre)
             db.session.commit()
+            flash('Genre Added Successfully', 'success')
 
     if id != current_user.id:
         return redirect(url_for('profile.get_profile', 
