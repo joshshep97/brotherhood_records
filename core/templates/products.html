@@ -52,7 +52,7 @@
             </div>
             <div class="product_details">
                     <p>{{product.title}}</p>
-                    <p>{{product.artist}}</p>
+                    <a href="{{url_for('product.get_artist', artist=product.artist)}}">{{product.artist}}</a>
                     <p>£{{product.price}}</p>
             </div>
             <div class="product_link">

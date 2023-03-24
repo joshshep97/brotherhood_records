@@ -1,5 +1,4 @@
 BACK-END:
-    add filter for top artists
     add model for Collection
         add Collection to profile page
 
@@ -7,4 +6,3 @@ DESIGN:
     make responsive
     Design flash and add close btn
     add dynamic password tips for reg
-    Design fav genres section

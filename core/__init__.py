@@ -1,13 +1,15 @@
+# flask specific imports
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
 from werkzeug.security import generate_password_hash
 
-from dotenv import load_dotenv
-
+# filesystem imports
+from dotenv import load_dotenv, find_dotenv
 from os import path
 import os
 
+# local imports
 from .datebase import db
 from .models import User
 
@@ -15,22 +17,26 @@ from .models import User
 login_manager = LoginManager()
 DB_NAME = 'database.db'
 
+# finds env in filesystem for development
+find_dotenv()
 
 def create_app():
 
+    # loads environment variables for development
     load_dotenv()
 
     app = Flask(__name__)
     # app configuration
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
     db.init_app(app)
 
     @app.route('/test')
     def test():
         return 'success'
     
-    # register blueprints
+    # 
+    # ===== REGISTER ROUTES =====
 
     from .routes import api as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
@@ -63,10 +69,7 @@ def create_app():
         admin = User(
                     username = os.environ.get('admin_username'),
                     email = os.environ.get('admin_email'),
-                    password = generate_password_hash(
-                        os.environ.get('admin_password'), 
-                        method='sha256'
-                    ),
+                    password = generate_password_hash(os.environ.get('admin_password'), method='sha256'),
                     is_admin = True,
                     name = 'Admin'
                 )
@@ -84,6 +87,7 @@ def create_app():
 
     return app
 
+# 
 def create_database(app):
     if not path.exists('core/' + DB_NAME):
         with app.app_context():

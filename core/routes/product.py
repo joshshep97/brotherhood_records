@@ -40,7 +40,7 @@ def product_page(id):
         **context
     )
 
-@product.route('/genre/<genre>')
+@product.route('/genre/<genre>/')
 def product_by_genre(genre):
     sort = request.args.get('sort')
 
@@ -52,6 +52,18 @@ def product_by_genre(genre):
         .all(),
     }
 
+    return render_template(
+        'products.html',
+        **context
+    )
+
+@product.route('/artist/<artist>/')
+def get_artist(artist):
+    artist_products = Product.query.filter_by(artist=artist).all()
+    context = {
+        'title': f'Products | {Product.artist}',
+        'products': artist_products,
+    } 
     return render_template(
         'products.html',
         **context
