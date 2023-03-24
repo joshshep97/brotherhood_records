@@ -2,10 +2,12 @@ BACK-END:
     add model for Collection
         add Collection to profile page
     Whatsapp Messaging
+    Setup Email 
 
 DESIGN:
     make responsive
     add dynamic password tips for reg
-    link up footer
     style success page
     style error page
+    Privacy Policy
+    Work for us page

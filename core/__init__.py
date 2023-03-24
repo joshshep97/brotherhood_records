@@ -32,6 +32,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
     db.init_app(app)
 
+    # migration setup
     migrate = Migrate(app, db)
 
     @app.route('/test')

@@ -51,11 +51,11 @@
             Change Password
         </a>
     </div>
-    <div class="favorite_genres">
-        <h3>Your favorite genres</h3>
-        <ul class="favorite_genres">
+    <div class="favorite__genres-wrapper">
+        <h3 class="favorite__genres-title">Your favorite genres</h3>
+        <ul class="favorite__genres-items">
             {% for genre in genres %}
-                <li>
+                <li class="favorite__genres-item">
                     {{ genre.name }}
                 </li>
             {% endfor %}
