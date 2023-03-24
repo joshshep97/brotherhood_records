@@ -63,10 +63,11 @@
 
 .genre__search-links {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
 
-    height: 5rem;
+    min-height: 5rem;
     
     background-color: var(--main);
 } .genre__search-link{

@@ -1,8 +1,11 @@
 BACK-END:
     add model for Collection
         add Collection to profile page
+    Whatsapp Messaging
 
 DESIGN:
     make responsive
-    Design flash and add close btn
     add dynamic password tips for reg
+    link up footer
+    style success page
+    style error page

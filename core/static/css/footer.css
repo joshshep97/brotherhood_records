@@ -1,8 +1,12 @@
 footer {
     background-color: #343434;
     color: #fff;
-    padding: .8rem 0;
+    padding: .8rem 0 0;
     text-align: center;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 .footer__nav-title,
@@ -60,8 +64,6 @@ footer {
     justify-content: center;
 
     padding: 1rem 6rem;
-
-    border-bottom: 1px solid #fcfcfc;
 } 
 
 .footer__copy-content,
@@ -74,6 +76,7 @@ footer {
 
 .footer__copy-wrapper {
     padding: 1rem;
+    border-bottom: 1px solid #fcfcfc;
 } .footer__copy-content {
     font-size: 1rem;
     font-weight: 500;
