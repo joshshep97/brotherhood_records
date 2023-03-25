@@ -100,15 +100,26 @@ select {
 /* FLASHED MESSAGES */
 .flash__wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     width: 100%;
-    padding: 1rem 0;
+    padding: 1rem 3rem;
 }
 
 .flash__content {
-    color: var(--main)
+    color: var(--main);
+    align-self: center;
+}
+
+.flash__close-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#flash__close-svg {
+    height: 20px;
 }
 
 .success {

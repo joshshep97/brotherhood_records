@@ -9,4 +9,11 @@ function openNav() {
 
 mobileNavBtn.addEventListener('click', openNav);
 
+// Close flash
 
+closeFlash = document.getElementById('flash__close-svg');
+flashMessage = document.getElementById('flash-message');
+
+closeFlash.addEventListener('click', () => {
+    flashMessage.style.display = 'none';
+});
