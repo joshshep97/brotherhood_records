@@ -83,9 +83,35 @@ footer a:hover {
     letter-spacing: 0.08rem;
 }
 
+@media screen and (max-width:762px){
+    .footer__nav-wrapper,
+    .footer__socials-content {
+        display: block;
+        padding: 1rem 0;
+    }
 
+    .footer__nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding-bottom: 1rem;
+    }
 
+    .footer__nav-item {
+        padding: 1rem 2rem;
+    }
 
+    .footer__notice-wrapper {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width:520px){
+    .footer__nav-list {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+}
 
 /* 
 
