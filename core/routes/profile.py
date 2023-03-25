@@ -18,8 +18,8 @@ import re
 profile = Blueprint('profile', __name__)
 
 
-@login_required
 @profile.route('/<int:id>/', methods=['GET', 'POST'])
+@login_required
 def get_profile(id):
     if request.method == 'POST':
         genre = request.form.get('genre').title( )
@@ -62,9 +62,9 @@ def get_profile(id):
             return redirect(url_for('main.index'))
     
 
-@login_required
 @profile.route('/<int:id>/edit_name/', 
                methods=['GET', 'POST'])
+@login_required
 def edit_name(id):
     selected_user = User.query.filter_by(
         id=id
@@ -90,9 +90,9 @@ def edit_name(id):
         **context
     )
 
-@login_required
 @profile.route('/<int:id>/edit_email/', 
                methods=['GET', 'POST'])
+@login_required
 def edit_email(id):
     selected_user = User.query.filter_by(
         id=id
@@ -118,9 +118,9 @@ def edit_email(id):
         **context
     )
 
-@login_required
 @profile.route('/<int:id>/edit_username/', 
                methods=['GET', 'POST'])
+@login_required
 def edit_username(id):
     if id != current_user.id:
         return redirect(
@@ -156,6 +156,7 @@ def edit_username(id):
     '/<int:id>/change_password/',
     methods=['GET', 'POST']
 )
+@login_required
 def change_password(id):
     if id != current_user.id:
         return redirect(url_for(

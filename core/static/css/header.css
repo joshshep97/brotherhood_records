@@ -46,7 +46,6 @@
     padding: .75rem 0;
 
     display: none;
-    transition: all 0.2s;
 }
 
 .mobile__nav-active {

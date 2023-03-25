@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, redirect
 
 import stripe
 import os
-from flask_login import current_user
+from flask_login import current_user, login_required
 
 product = Blueprint('product', __name__)
 
@@ -74,7 +74,9 @@ DOMAIN = 'http://127.0.0.1:5000'
 
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 
+
 @product.route('/<int:id>/create-checkout-session/', methods=['GET', 'POST'])
+@login_required
 def create_checkout_session(id):
     product = Product.query.filter_by(id=id).first()
     price_id = product.price_id

@@ -86,7 +86,12 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
+    
+    # define login manager
+
     login_manager.login_view = 'auth.login'
+    login_manager.login_message_category = 'error'
+    login_manager.login_message = 'You must be logged in to access this page.'
 
 
     return app

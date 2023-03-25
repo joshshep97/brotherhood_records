@@ -84,6 +84,18 @@ td {
     width: 100%;
 }
 
+.password__helper-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.5rem 0rem 1rem;
+}
+
+.password__helper-content {
+    padding: 0.75rem 0;
+    color: var(--error);
+}
+
 @media screen and (max-width:600px){
     td {
         padding: 0.4rem;
@@ -94,14 +106,3 @@ td {
     border: 1px solid black;
 } */
 
-.password__helper-wrapper {
-    display: flex;
-    flex-direction: column;
-
-    padding: 0.5rem 0.5rem 1rem;
-}
-
-.password__helper-content {
-    padding: 0.75rem 0;
-    color: var(--error);
-}
