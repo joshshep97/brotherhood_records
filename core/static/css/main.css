@@ -65,10 +65,12 @@ input[type='email'] {
 }
 
 input[type='submit'] {
-    width: 25%;
+    min-width: 25%;
     background-color: var(--dark);
     color: var(--main);
     cursor: pointer;
+    border-radius: 0.75rem;
+    transition: all 0.15s ease-in;
 }
 
 input[type='submit']:hover {
@@ -76,7 +78,8 @@ input[type='submit']:hover {
     color: var(--main);
 }
 select {
-    width: 50%;
+    min-width: 50%;
+    border-radius: 0.75rem;
 }
 
 .divider-wrapper {
@@ -118,7 +121,7 @@ select {
 
 /* Customize scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
   }
   
   ::-webkit-scrollbar-track {
@@ -133,3 +136,9 @@ select {
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+@media screen and (max-width:800px) {
+    .container {
+        margin: 0;
+    }
+}

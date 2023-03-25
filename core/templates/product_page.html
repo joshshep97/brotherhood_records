@@ -12,12 +12,13 @@
                     <p>{{product.artist}}</p>
                     <p>£{{product.price}}</p>
             </div>
-        </div>
-        <div class="buy_now">
+            <div class="buy_now">
             <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post" class="buy_form">
-        <input type="submit" value="Buy Now!" class="buy_btn">
-    </form>
+                <input type="submit" value="Buy Now!" class="buy_btn">
+            </form>
         </div>
+        </div>
+        
 {% endblock %}
 
 <!-- <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post" class="buy_now">

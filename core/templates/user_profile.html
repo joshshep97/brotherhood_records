@@ -1,51 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="container">
-    <table class="profile__table">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    {{ user.name }}
-                </th>
-                <th>
-                    <a href="{{url_for('profile.edit_name', id=current_user.id)}}">
-                        edit
-                    </a>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    Username
-                </td>
-                <td>
-                    {{ user.username }}
-                </td>
-                <td>
-                    <a href="{{url_for('profile.edit_username', id=current_user.id)}}">
-                        edit
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    E-mail
-                </td>
-                <td>
-                    {{ user.email }}
-                </td>
-                <td>
-                    <a href="{{url_for('profile.edit_email', id=current_user.id)}}">
-                        edit
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="profile__table-wrapper">
+        <table class="profile__table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        {{ user.name }}
+                    </th>
+                    <th>
+                        <a href="{{url_for('profile.edit_name', id=current_user.id)}}">
+                            edit
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Username
+                    </td>
+                    <td>
+                        {{ user.username }}
+                    </td>
+                    <td>
+                        <a href="{{url_for('profile.edit_username', id=current_user.id)}}">
+                            edit
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        E-mail
+                    </td>
+                    <td>
+                        {{ user.email }}
+                    </td>
+                    <td>
+                        <a href="{{url_for('profile.edit_email', id=current_user.id)}}">
+                            edit
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="profile__password-wrapper">
         <a href="{{url_for('profile.change_password', id=current_user.id)}}" class="profile__password-link">
             Change Password

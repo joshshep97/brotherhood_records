@@ -1,5 +1,12 @@
+.profile__table-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 table {
-    width: 100%;
+    max-width: 100%;
 
     text-align: center;
 }
@@ -31,7 +38,7 @@ td {
     flex-direction: column;
     align-items: center;
 
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     border-top: 1px solid var(--dark)
 } .favorite__genres-title {
     font-size: 1.5rem;
@@ -49,9 +56,15 @@ td {
 } .favorite__genres-item {
     background-color: #f6f6f6;
     min-width: 8rem;
-    padding: .75rem 0;
+    padding: .75rem;
     border-radius:.7rem;
     border: 1px solid var(--dark);
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    margin-bottom: 1rem;
+} .favorite__genres-item:hover {
+    background-color: var(--dark);
+    color: var(--main)
 }
 
 .add_genre {
@@ -69,4 +82,10 @@ td {
 
     background-color: #fafafa;
     width: 100%;
+}
+
+@media screen and (max-width:600px){
+    td {
+        padding: 0.4rem;
+    }
 }

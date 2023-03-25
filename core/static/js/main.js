@@ -1,3 +1,15 @@
+// Mobile nav
+mobileNavBtn = document.getElementById('mobileNavBtn');
+mobileNav = document.getElementById('mobileNav');
+
+function openNav() {
+    mobileNav.classList.toggle('mobile__nav-active');
+}
+
+mobileNavBtn.addEventListener('click', openNav);
+
+
+
 // INPUT AUTOCOMPLETE
 
 let words = [

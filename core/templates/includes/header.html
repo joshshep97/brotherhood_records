@@ -39,4 +39,50 @@
             {% endif %}
         </ul>
     </nav>
+    <img src="{{url_for('static', filename='icons/bars-solid.svg')}}" 
+    alt="Menu" 
+    class="mobile__nav-svg"
+    id="mobileNavBtn">
 </header>
+<nav class="mobile__nav-wrapper">
+    <ul class="mobile__nav" id="mobileNav">
+        {% if current_user.is_authenticated %}
+        <li class="mobile__nav-item">
+            Hello, {{current_user.name}}
+        </li>
+        {% endif %}
+        <li class="mobile__nav-item">
+            <a href="{{url_for('product.get_products')}}" 
+            class="mobile__nav-link">
+                Products
+            </a>
+        </li>
+        {% if current_user.is_authenticated %}
+        <li class="mobile__nav-item">
+            <a href="{{url_for('profile.get_profile', id = current_user.id)}}" 
+            class="mobile__nav-link">
+                Profile
+            </a>
+        </li>
+        <li class="mobile__nav-item">
+            <a href="{{url_for('auth.logout')}}" 
+            class="mobile__nav-link">
+                Logout
+            </a>
+        </li>
+        {% else %}
+        <li class="mobile__nav-item">
+            <a href="{{url_for('auth.login')}}" 
+            class="mobile__nav-link">
+                Login
+            </a>
+        </li>
+        <li class="nav__item">
+            <a href="{{url_for('auth.register')}}" 
+            class="mobile__nav-link">
+                Register
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

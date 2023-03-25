@@ -5,7 +5,8 @@ BACK-END:
     Setup Email 
 
 DESIGN:
-    make responsive
+    make responsive 
+        add mobile nav
     add dynamic password tips for reg
     style success page
     style error page

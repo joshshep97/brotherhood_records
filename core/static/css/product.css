@@ -11,12 +11,13 @@
     */
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 1rem 0;
     margin: 1rem 0;
-    height: 20rem;
+    min-height: 20rem;
     font-size: 1.2rem;
     letter-spacing: 0.08rem;
 
@@ -30,14 +31,18 @@
     color: var(--dark);
 }
 
+
 .product_details {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     height: 70%;
 } .product_details p {
     padding: .8rem 0;
-} 
+} a.product_details-link {
+    color: var(--dark);
+}
 
 .product__img-wrapper {
     height: 90%;
@@ -54,7 +59,8 @@
     justify-content: center;
     width: 100%;
 } .genre__search-title {
-    align-self: center;
+    text-align: center;
+    padding-bottom: 1rem;
 } .genre__search-title h3 {
     font-size: 1.5rem;
     color: var(--dark);
@@ -72,6 +78,7 @@
     background-color: var(--main);
 } .genre__search-link{
     font-size: 1.2rem;
+    padding: .5rem;;
 }.genre__search-link:hover {
     color: #020202;
     text-decoration: underline;
@@ -84,6 +91,8 @@
 .sort__form {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -91,3 +100,19 @@
     text-align: center;
     margin-bottom: 1rem;
 }
+
+
+        /* 
+
+        product page wrapper ===> bg #f9f9f9 ?
+            slightly larger than product_wrapper
+        <div> flex column
+            <div> flex center space around
+                img     |   product detail
+            </div>
+            <div> flex center
+                buy btn
+            </div>
+        </div>
+
+        */

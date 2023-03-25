@@ -27,3 +27,56 @@
     background-color: var(--dark);
     color: var(--main)
 }
+
+/* mobile nav */
+.mobile__nav-svg {
+    display: none;
+    height: 25px;
+    color: var(--main);
+    cursor: pointer;
+}
+
+.mobile__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;
+    background-color: var(--dark);
+    padding: .75rem 0;
+
+    display: none;
+    transition: all 0.2s;
+}
+
+.mobile__nav-active {
+    display: flex;
+}
+
+.mobile__nav-item {
+    padding: .75rem 1rem;
+    border-bottom: 1px solid var(--main);
+    width: 75%;
+    border-radius: 0.2rem;
+
+    color: var(--main);
+}
+
+.mobile__nav-item:last-child {
+    border-bottom: none;
+}
+
+.mobile__nav-link {
+    color: var(--main);
+}
+
+
+@media (max-width: 744px) {
+    .nav__item {
+        display: none;
+    }
+
+    .mobile__nav-svg {
+        display: block;
+    }
+}
