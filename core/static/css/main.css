@@ -130,6 +130,21 @@ select {
     background-color: var(--error);
 }  
 
+.error__wrapper {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.error__content {
+    padding: 2rem;
+}
+
+.error__icon {
+    height: 70px;
+}
 
 /* Customize scrollbar */
 ::-webkit-scrollbar {

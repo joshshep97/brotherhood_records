@@ -31,6 +31,16 @@ def cancel():
         **context
     )
 
+@main.route('/privacy/')
+def privacy():
+    context = {
+        'title': 'Privacy Policy',
+    }
+
+    return render_template(
+        'privacy.html',
+        **context
+    )
 
 
 

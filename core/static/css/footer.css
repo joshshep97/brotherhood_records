@@ -84,8 +84,7 @@ footer a:hover {
 }
 
 @media screen and (max-width:762px){
-    .footer__nav-wrapper,
-    .footer__socials-content {
+    .footer__nav-wrapper {
         display: block;
         padding: 1rem 0;
     }
@@ -93,7 +92,7 @@ footer a:hover {
     .footer__nav-list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: center;
         padding-bottom: 1rem;
     }
 
@@ -103,6 +102,17 @@ footer a:hover {
 
     .footer__notice-wrapper {
         padding: 1rem;
+    }
+}
+
+@media screen and (max-width:610px){
+    .footer__socials-content {
+        padding: 1rem 0;
+    }
+}
+@media screen and (max-width:550px){
+    .footer__socials-content {
+        display: block;
     }
 }
 

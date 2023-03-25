@@ -35,6 +35,7 @@
 .product__page-wrapper a:hover {
     text-decoration: underline;
     color: var(--dark);
+    border-radius: 0.2rem;
 }
 
 .product_details {
@@ -118,7 +119,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 
     min-height: 5rem;
     
@@ -147,6 +148,20 @@
     text-align: center;
     margin-bottom: 1rem;
 }
+
+
+/* cancel page */
+
+.para-block {
+    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+    font-weight: 300;
+    line-height: 2rem;
+
+    padding: 1rem 0;
+}
+
+
 
 @media screen and (min-width: 1440px){
     .product__page-wrapper {

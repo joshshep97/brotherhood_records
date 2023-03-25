@@ -1,5 +1,5 @@
 # flask specific imports
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
 from werkzeug.security import generate_password_hash
@@ -39,6 +39,10 @@ def create_app():
     def test():
         return 'success'
     
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template('404.html'), 404
+
     # 
     # ===== REGISTER ROUTES =====
 

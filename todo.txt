@@ -5,10 +5,8 @@ BACK-END:
     Setup Email 
 
 DESIGN:
-    make responsive 
-        responsive footer
-    style success page
-    style error page
-    Privacy Policy
     Work for us page
     Add 404
+
+After all:
+    add products
