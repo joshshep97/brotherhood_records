@@ -11,3 +11,4 @@ DESIGN:
     style error page
     Privacy Policy
     Work for us page
+    Add 404

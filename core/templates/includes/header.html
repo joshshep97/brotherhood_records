@@ -47,42 +47,38 @@
 <nav class="mobile__nav-wrapper">
     <ul class="mobile__nav" id="mobileNav">
         {% if current_user.is_authenticated %}
-        <li class="mobile__nav-item">
+        <li class="mobile__nav-item mobile__nav-greeting">
             Hello, {{current_user.name}}
         </li>
         {% endif %}
-        <li class="mobile__nav-item">
-            <a href="{{url_for('product.get_products')}}" 
-            class="mobile__nav-link">
+        <a href="{{url_for('product.get_products')}}" class="mobile__nav-link">
+        <li class="mobile__nav-item"> 
                 Products
-            </a>
         </li>
+        </a>
         {% if current_user.is_authenticated %}
+            <a href="{{url_for('profile.get_profile', id = current_user.id)}}" class="mobile__nav-link"> 
         <li class="mobile__nav-item">
-            <a href="{{url_for('profile.get_profile', id = current_user.id)}}" 
-            class="mobile__nav-link">
                 Profile
-            </a>
         </li>
+        </a>
+        <a href="{{url_for('auth.logout')}}" class="mobile__nav-link">
         <li class="mobile__nav-item">
-            <a href="{{url_for('auth.logout')}}" 
-            class="mobile__nav-link">
                 Logout
-            </a>
         </li>
+        </a>
+
         {% else %}
+        <a href="{{url_for('auth.login')}}" class="mobile__nav-link">
         <li class="mobile__nav-item">
-            <a href="{{url_for('auth.login')}}" 
-            class="mobile__nav-link">
                 Login
-            </a>
         </li>
+        </a>
+        <a href="{{url_for('auth.register')}}" class="mobile__nav-link">
         <li class="mobile__nav-item">
-            <a href="{{url_for('auth.register')}}" 
-            class="mobile__nav-link">
                 Register
-            </a>
         </li>
+        </a>
         {% endif %}
     </ul>
 </nav>

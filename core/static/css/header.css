@@ -52,16 +52,22 @@
     display: flex;
 }
 
-.mobile__nav-item {
+.mobile__nav-link,
+.mobile__nav-greeting {
     padding: .75rem 1rem;
     border-bottom: 1px solid var(--main);
     width: 75%;
     border-radius: 0.2rem;
 
     color: var(--main);
+
+    transition: all 0.3s;
+} .mobile__nav-link:hover {
+    background-color: var(--main);
+    color: var(--dark);
 }
 
-.mobile__nav-item:last-child {
+.mobile__nav-link:last-child {
     border-bottom: none;
 }
 
@@ -78,4 +84,8 @@
     .mobile__nav-svg {
         display: block;
     }
+}
+
+.toggle {
+    transform: rotate(-45deg) translate(-5px,6px);
 }
