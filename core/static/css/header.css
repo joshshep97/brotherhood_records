@@ -71,7 +71,7 @@
 }
 
 
-@media (max-width: 744px) {
+@media (max-width: 760px) {
     .nav__item {
         display: none;
     }

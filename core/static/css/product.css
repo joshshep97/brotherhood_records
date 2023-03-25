@@ -2,6 +2,17 @@
     border: 1px solid black;
 } */
 
+.product_wrapper,
+.product__page-wrapper {
+    margin: 1rem 0;
+    min-height: 20rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.08rem;
+
+    background-color: #fafafa;
+    color: var(--dark);
+}
+
 .product_wrapper {
 
     /* contains all information for each product
@@ -15,22 +26,16 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding: 1rem 0;
-    margin: 1rem 0;
-    min-height: 20rem;
-    font-size: 1.2rem;
-    letter-spacing: 0.08rem;
-
-    background-color: #fbfbfb;
-    color: var(--dark);
-} .product_wrapper a {
+    
+} .product_wrapper a,
+.product__page-wrapper a {
     color: var(--secondary);
 }
-.product_wrapper a:hover {
+.product_wrapper a:hover,
+.product__page-wrapper a:hover {
     text-decoration: underline;
     color: var(--dark);
 }
-
 
 .product_details {
     display: flex;
@@ -51,6 +56,48 @@
     height: 100%;
     aspect-ratio: 1 / 1;
 }
+
+.product__page-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    flex-direction: column;
+    min-height: 60vh;
+}
+
+.product__page-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 90%;
+    padding: 1rem 0 3rem 0;
+    text-align: center;
+}
+
+.product__page-img {
+    width: 20rem;
+    padding: 0 2rem;
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+}
+
+
+        /* 
+
+        product page wrapper ===> bg #f9f9f9 ?
+            slightly larger than product_wrapper
+        <div> flex column
+            <div> flex center space around
+                img     |   product detail
+            </div>
+            <div> flex center
+                buy btn
+            </div>
+        </div>
+
+        */
+
 
 .genre__search-wrapper {
     display: flex;
@@ -101,18 +148,18 @@
     margin-bottom: 1rem;
 }
 
+@media screen and (min-width: 1440px){
+    .product__page-wrapper {
+        padding: 0 3rem;
+    }
+}
 
-        /* 
-
-        product page wrapper ===> bg #f9f9f9 ?
-            slightly larger than product_wrapper
-        <div> flex column
-            <div> flex center space around
-                img     |   product detail
-            </div>
-            <div> flex center
-                buy btn
-            </div>
-        </div>
-
-        */
+@media screen and (max-width: 700px) {
+    .product_wrapper {
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-around;
+    } .product_wrapper div {
+        padding: .75rem 0;
+    }
+}

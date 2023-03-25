@@ -3,10 +3,14 @@ BACK-END:
         add Collection to profile page
     Whatsapp Messaging
     Setup Email 
+    add track model
+        db.relationship to Product
+        add to admin
 
 DESIGN:
     make responsive 
-        add mobile nav
+        responsive footer
+    rewrite product page
     add dynamic password tips for reg
     style success page
     style error page

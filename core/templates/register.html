@@ -17,11 +17,20 @@
             Password
         </label>
         <input type="password" name="password" id="password">
+        
+        <div class="password__helper-wrapper">
+            <p id="password-numbers" class="password__helper-content">Password must include at the one number</p>
+            <p id="password-characters" class="password__helper-content">Password is a minimum of 12 characters</p>
+            <p id="password-special" class="password__helper-content">Pasword includes at least one special character</p>
+            <p id="password-lower" class="password__helper-content">Password must include at least one lowercase character</p>
+            <p id="password-upper" class="password__helper-content">Password must include at least one uppercase character</p>
 
-        <label for="password_two">
+        </div>
+
+        <label for="password_confirmation">
             Re-enter Password
         </label>
-        <input type="password" name="password_confirmation" id="password_confirmation">
+        <input type="password" name="password_confirmation" id="password-confirmation">
 
         <input type="submit" value="register">
     </form>

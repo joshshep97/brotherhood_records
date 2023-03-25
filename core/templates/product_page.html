@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="product_wrapper">
-            <div class="product__img-wrapper">
-                <img src="{{product.img_url}}" 
-                alt="{{product.title}}, {{product.artist}}" 
-                class="product__img">
+    <div class="product__page-wrapper">
+            <div class="product__page-main">
+                <div class="product__page-img-wrapper">
+                    <img src="{{product.img_url}}" 
+                    alt="{{product.title}}, {{product.artist}}" 
+                    class="product__page-img">
+                </div>
+                <div class="product_details">
+                        <p>{{product.title}}</p>
+                        <p>{{product.artist}}</p>
+                        <p>£{{product.price}}</p>
+                </div>
             </div>
-            <div class="product_details">
-                    <p>{{product.title}}</p>
-                    <p>{{product.artist}}</p>
-                    <p>£{{product.price}}</p>
+            <div class="product__page-buy">
+                <div class="buy_now">
+                    <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post" class="buy_form">
+                        <input type="submit" value="Buy Now!" class="buy_btn">
+                    </form>
+                </div>
             </div>
-            <div class="buy_now">
-            <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post" class="buy_form">
-                <input type="submit" value="Buy Now!" class="buy_btn">
-            </form>
-        </div>
         </div>
         
 {% endblock %}
