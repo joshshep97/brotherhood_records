@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <main class="container">
+        <form action="" method="POST">
+            <label for="sender">Your Name</label>
+            {% if user.is_authenticated %}
+                <input type="text" name="sender" id="sender" value="{{ user.name }}" placeholder="Your Name">
+            {% else %}
+            <input type="text" name="sender" id="sender" placeholder="Your Name">
+            {% endif %}
+    
+            <label for="message">Your Message</label>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+    
+            <label for="media_url">Media</label>
+            <input type="text" name="media_url" id="media_url">
+    
+            <input type="submit" value="Send">
+        </form>
+    </main>
+{% endblock %}

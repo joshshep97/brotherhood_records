@@ -29,7 +29,7 @@ def create_app():
     app = Flask(__name__)
     # app configuration
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
     db.init_app(app)
 
     # migration setup

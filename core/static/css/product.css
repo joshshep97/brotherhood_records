@@ -50,12 +50,13 @@
     color: var(--dark);
 }
 
-.product__img-wrapper {
+/* .product__img-wrapper {
     height: 90%;
     aspect-ratio: 1 / 1;
-} .product__img {
-    height: 100%;
-    aspect-ratio: 1 / 1;
+}  */
+.product__img {
+    height: 12rem;
+    object-fit: contain;
 }
 
 .product__page-wrapper {

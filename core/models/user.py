@@ -15,7 +15,7 @@ class User(UserMixin, db.Model):
         nullable=False
     )
     password = db.Column(
-        db.String(55), 
+        db.Text, 
         nullable=False
     )
     email = db.Column(
