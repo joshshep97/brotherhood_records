@@ -13,6 +13,7 @@ from werkzeug.security import (check_password_hash,
 
 from ..models import User, FavoriteGenre
 from ..datebase import db
+from .product import get_genres
 import re
 
 profile = Blueprint('profile', __name__)
@@ -46,7 +47,8 @@ def get_profile(id):
         context = {
             'title': 'Your Profile',
             'user': current_user,
-            'genres': current_user.favorite_genres
+            'genres': current_user.favorite_genres,
+            'product_genres': get_genres()
         }
 
         if current_user.is_authenticated:

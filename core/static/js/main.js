@@ -14,6 +14,10 @@ mobileNavBtn.addEventListener('click', openNav);
 closeFlash = document.getElementById('flash__close-svg');
 flashMessage = document.getElementById('flash-message');
 
-closeFlash.addEventListener('click', () => {
-    flashMessage.style.display = 'none';
-});
+if (document.body.contains(flashMessage)){
+    closeFlash.addEventListener('click', () => {
+        flashMessage.style.display = 'none';
+    });
+}
+
+

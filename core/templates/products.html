@@ -10,9 +10,7 @@
             </div>
             <div class="genre__search-links">
                 {% for genre in genres %}
-                <a href="{{url_for('product.product_by_genre', genre=genre)}}" class="genre__search-link">
-                    {{genre}}
-                </a>
+                <a href="{{url_for('product.product_by_genre', genre=genre)}}" class="genre__search-link">{{genre}}</a>
                 {% endfor %}
             </div>
         </div>

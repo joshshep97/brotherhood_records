@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="container">
+    <div class="genre__search-links" style="display:none">
+        {% for product_genre in product_genres %}
+        <a href="{{url_for('product.product_by_genre', genre=product_genre)}}" class="genre__search-link">{{product_genre}}</a>
+        {% endfor %}
+    </div>
     <div class="profile__table-wrapper">
         <table class="profile__table">
             <thead>

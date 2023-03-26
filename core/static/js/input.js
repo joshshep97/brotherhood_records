@@ -1,15 +1,15 @@
 // INPUT AUTOCOMPLETE
 
-let words = [
-    'Rock',
-    'Metal',
-    'Pop',
-    'Jazz',
-    'Classical',
-    'Hip Hop',
-    'Dance',
-    'Punk'
-];
+words = []
+
+dom_genres = document.getElementsByClassName('genre__search-link')
+
+for (let i = 0; i < dom_genres.length; i++) {
+    words.push(dom_genres[i].innerHTML)
+}
+
+
+console.log(words)
 
 // sorts the list of words in alphabetical order
 words.sort();
