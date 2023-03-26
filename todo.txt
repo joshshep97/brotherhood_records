@@ -6,7 +6,6 @@ BACK-END:
 
 DESIGN:
     Work for us page
-    Add 404
 
 After all:
     add products

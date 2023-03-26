@@ -12,7 +12,7 @@ import os
 
 # local imports
 from .datebase import db
-from .models import User
+from .models import User, Product
 
 
 login_manager = LoginManager()
@@ -96,7 +96,6 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.login_message_category = 'error'
     login_manager.login_message = 'You must be logged in to access this page.'
-
 
     return app
 

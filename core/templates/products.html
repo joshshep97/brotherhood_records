@@ -9,27 +9,11 @@
                 </h3>
             </div>
             <div class="genre__search-links">
-                <a href="{{url_for('product.product_by_genre', genre='Rock')}}" class="genre__search-link">
-                    Rock &amp; Metal
+                {% for genre in genres %}
+                <a href="{{url_for('product.product_by_genre', genre=genre)}}" class="genre__search-link">
+                    {{genre}}
                 </a>
-                <a href="{{url_for('product.product_by_genre', genre='Pop')}}" class="genre__search-link">
-                    Pop
-                </a>
-                <a href="{{url_for('product.product_by_genre', genre='Jazz')}}" class="genre__search-link">
-                    Jazz
-                </a>
-                <a href="{{url_for('product.product_by_genre', genre='Classical')}}" class="genre__search-link">
-                    Classical
-                </a>
-                <a href="{{url_for('product.product_by_genre', genre='Hip Hop')}}" class="genre__search-link">
-                    Hip Hop
-                </a>
-                <a href="{{url_for('product.product_by_genre', genre='Dance')}}" class="genre__search-link">
-                    Dance
-                </a>
-                <a href="{{url_for('product.product_by_genre', genre='Punk')}}" class="genre__search-link">
-                    Punk
-                </a>
+                {% endfor %}
             </div>
         </div>
         <div class="sort__form-wrapper">

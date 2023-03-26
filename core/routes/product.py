@@ -6,7 +6,15 @@ import stripe
 import os
 from flask_login import current_user, login_required
 
+
 product = Blueprint('product', __name__)
+
+
+def get_genres():
+    genres = set()
+    for product in Product.query.all():
+        genres.add(product.genre)
+    return list(genres)
 
 @product.route('/')
 def get_products():
@@ -17,6 +25,7 @@ def get_products():
         'products': Product.query
         .order_by(sort)
         .all(),
+        'genres': get_genres(),
     }
 
     return render_template(
@@ -33,6 +42,7 @@ def product_page(id):
     context = {
         'title': selected_product.title,
         'product': selected_product,
+        'genres': get_genres(),
     }
 
     return render_template(
@@ -50,6 +60,7 @@ def product_by_genre(genre):
         .filter_by(genre=genre)
         .order_by(sort)
         .all(),
+        'genres': get_genres(),
     }
 
     return render_template(
@@ -63,6 +74,7 @@ def get_artist(artist):
     context = {
         'title': f'Products | {Product.artist}',
         'products': artist_products,
+        'genres': get_genres(),
     } 
     return render_template(
         'products.html',
