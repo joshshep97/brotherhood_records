@@ -95,14 +95,29 @@ td {
     color: var(--error);
 }
 
-.profile__collection-wrapper {
-    padding: 1rem 0;
-}
-
 .profile__collection-list {
-    padding: .5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 0.5rem;
 }
 
+.profile__collection-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.08rem;
+    text-align: center;
+
+    padding: 1rem;
+}
+
+.profile__collection-list img {
+    padding: .5rem 2rem;
+    width: 15rem;
+    object-fit: contain;
+}
 
 
 @media screen and (max-width:600px){

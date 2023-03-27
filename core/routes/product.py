@@ -137,11 +137,12 @@ def create_checkout_session(id):
                 },
             ],
             mode='payment',
-            success_url=DOMAIN + '/success',
+            success_url=f'{DOMAIN}/products/add-to-collection/{str(product.id)}',
             cancel_url=DOMAIN + '/cancelled',
         )
     except Exception as e:
         return str(e)
+    flash('Purchase Successful!', 'success')
 
     return redirect(
         checkout_session.url,

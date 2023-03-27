@@ -76,19 +76,19 @@
         <input type="submit" id="submit_genre" disabled>
     </form>
     <div class="profile__collection-wrapper">
-        <h3>Your Collection</h3>
+        <h3 class="profile__collection-title">Your Collection</h3>
         {% if collection_length == 0 %}
             <p class="para-block">
                 Your collection is empty. View our <a href="{{url_for('product.get_products')}}">products</a> to add some now!
             </p>
         {% else %}
-        <ul class="profile__collection-list">
-            <li class="profile__collection-item">
+        <div class="profile__collection-list">
             {% for item in user.collection %}
-                {{ item.title }} - {{ item.artist }}
+                <a href="{{url_for('product.product_page', id=item.id)}}">
+                    <img src="{{item.img_url}}" alt="{{item.title}}, {{item.artist}}" title="{{item.title}}, {{item.artist}}">
+                </a>
             {% endfor %}
-            </li>
-        </ul>
+        </div>
         {% endif %}
     </div>
 

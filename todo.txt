@@ -1,6 +1,4 @@
 BACK-END:
-    add model for Collection
-        add Collection to profile page
 
 After all:
     add products
