@@ -20,6 +20,21 @@
                     <form action="{{url_for('product.create_checkout_session', id=product.id)}}" method="post" class="buy_form">
                         <input type="submit" value="Buy Now!" class="buy_btn">
                     </form>
+                    <div class="product__ctas">
+                        {% if product not in current_user.collection %}
+                        <div class="product_link">
+                            <a href="{{url_for('product.add_to_collection', id=product.id)}}" class="cta">
+                                Add to Collection
+                            </a>
+                        </div>
+                        {% else %}
+                        <div class="product_link">
+                            <a href="{{url_for('product.remove_from_collection', id=product.id)}}" class="cta">
+                                Remove from Collection
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

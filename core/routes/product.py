@@ -90,12 +90,12 @@ def add_to_collection(id):
     product = Product.query.filter_by(id=id).first()
     if product in current_user.collection:
         flash('You have already added this to your collection', 'error')
-        return redirect(url_for('product.product_page', id=id))
+        return redirect(url_for('profile.get_profile', id=current_user.id))
     else:
         current_user.collection.append(product)
         db.session.commit()
         flash('Product added to your collection','success')
-        return redirect(url_for('product.product_page', id=id))
+        return redirect(url_for('profile.get_profile', id=current_user.id))
 
 @product.route('/remove-from-collection/<int:id>/')
 
@@ -104,12 +104,12 @@ def remove_from_collection(id):
     product = Product.query.filter_by(id=id).first()
     if product not in current_user.collection:
         flash('You have not added this to your collection', 'error')
-        return redirect(url_for('product.product_page', id=id))
+        return redirect(url_for('profile.get_profile', id=current_user.id))
     else:
         current_user.collection.remove(product)
         db.session.commit()
         flash('Product removed from your collection','success')
-        return redirect(url_for('product.product_page', id=id))
+        return redirect(url_for('profile.get_profile', id=current_user.id))
     
 DOMAIN = 'http://127.0.0.1:5000'
 

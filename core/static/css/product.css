@@ -150,6 +150,15 @@
     margin-bottom: 1rem;
 }
 
+.product__ctas {
+    display: flex;
+    flex-direction: column;
+}
+
+.product_link {
+    margin: 1rem 0;
+}
+
 
 /* cancel page */
 

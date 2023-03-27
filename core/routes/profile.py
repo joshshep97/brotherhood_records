@@ -48,7 +48,8 @@ def get_profile(id):
             'title': 'Your Profile',
             'user': current_user,
             'genres': current_user.favorite_genres,
-            'product_genres': get_genres()
+            'product_genres': get_genres(),
+            'collection_length': len(current_user.collection)
         }
 
         if current_user.is_authenticated:
