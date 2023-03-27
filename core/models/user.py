@@ -3,6 +3,18 @@ import datetime
 
 from . import db
 
+user_product = db.Table('user_product',
+                        db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+                        db.Column('product_id', db.Integer, db.ForeignKey('product.id'))
+                    )
+
+# To add
+#   new_collection = <user>.collection.append(<product>)
+#   db.session.add(new_collection)
+#   db.session.commit()
+# To access:
+#   <user>.collection
+
 class User(UserMixin, db.Model):
     # required
     id = db.Column(
@@ -40,6 +52,7 @@ class User(UserMixin, db.Model):
         db.Date, 
         default=datetime.datetime.now()
     )
+    collection = db.relationship('Product', secondary=user_product, backref='collection', lazy=True)
 
     def to_dict(self):
         return {

@@ -1,11 +1,6 @@
 BACK-END:
     add model for Collection
         add Collection to profile page
-    Whatsapp Messaging
-    Setup Email 
-
-DESIGN:
-    Work for us page
 
 After all:
     add products

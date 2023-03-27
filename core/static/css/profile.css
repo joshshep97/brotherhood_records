@@ -95,6 +95,16 @@ td {
     color: var(--error);
 }
 
+.profile__collection-wrapper {
+    padding: 1rem 0;
+}
+
+.profile__collection-list {
+    padding: .5rem 0;
+}
+
+
+
 @media screen and (max-width:600px){
     td {
         padding: 0.4rem;

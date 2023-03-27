@@ -1,6 +1,7 @@
 from ..models import Product
+from .. import db
 
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 
 import stripe
 import os
@@ -26,6 +27,7 @@ def get_products():
         .order_by(sort)
         .all(),
         'genres': get_genres(),
+        'collection': current_user.collection
     }
 
     return render_template(
@@ -81,7 +83,34 @@ def get_artist(artist):
         **context
     )
 
+@product.route('add-to-collection/<int:id>/')
 
+@login_required
+def add_to_collection(id):
+    product = Product.query.filter_by(id=id).first()
+    if product in current_user.collection:
+        flash('You have already added this to your collection', 'error')
+        return redirect(url_for('product.product_page', id=id))
+    else:
+        current_user.collection.append(product)
+        db.session.commit()
+        flash('Product added to your collection','success')
+        return redirect(url_for('product.product_page', id=id))
+
+@product.route('/remove-from-collection/<int:id>/')
+
+@login_required
+def remove_from_collection(id):
+    product = Product.query.filter_by(id=id).first()
+    if product not in current_user.collection:
+        flash('You have not added this to your collection', 'error')
+        return redirect(url_for('product.product_page', id=id))
+    else:
+        current_user.collection.remove(product)
+        db.session.commit()
+        flash('Product removed from your collection','success')
+        return redirect(url_for('product.product_page', id=id))
+    
 DOMAIN = 'http://127.0.0.1:5000'
 
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')

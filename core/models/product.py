@@ -48,3 +48,6 @@ class Product(db.Model):
         'release_year': self.release_year,
         'img_url': self.img_url
     }
+
+    def __repr__(self):
+        return f'{self.title} - {self.artist}'
