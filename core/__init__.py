@@ -30,6 +30,7 @@ def create_app():
     # app configuration
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
+    app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600
     db.init_app(app)
 
     # migration setup
