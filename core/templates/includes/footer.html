@@ -5,31 +5,32 @@
                 Top Artists
             </h3>
             <ul class="footer__nav-list">
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.get_artist', artist='David Bowie')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">
                         David Bowie
-                    </li>
-                </a>
+                    </a>
+                </li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.get_artist', artist='Radiohead')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">
                         Radiohead
-                    </li>
                 </a>
+                </li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.get_artist', artist='Black Sabbath')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">
                         Black Sabbath
-                    </li>
                 </a>
+                </li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.get_artist', artist='Nirvana')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">
                         Nirvana
-                    </li>
                 </a>
+                </li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.get_artist', artist='The Ramones')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">
                         The Ramones
-                    </li>
-                </a>
+                </a>    
+                </li>
+                
             </ul>
         </div>
         <div class="footer__nav-genre">
@@ -37,21 +38,31 @@
                 Genres
             </h3>
             <ul class="footer__nav-list">
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.product_by_genre', genre='Rock')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">Rock</li>
+                    Rock
                 </a>
+                </li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.product_by_genre', genre='Metal')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">Metal</li>
+                    Metal
                 </a>
+                </li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.product_by_genre', genre='Punk')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">Punk</li>
+                    Punk
                 </a>
+                </li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.product_by_genre', genre='Hip Hop')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">Hip Hop</li>
+                    Hip Hop
                 </a>
+                </li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('product.product_by_genre', genre='Jazz')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">Jazz</li>
+                    Jazz
                 </a>
+                </li>
             </ul>
         </div>
         <div class="footer__nav-about">
@@ -59,38 +70,42 @@
                 About
             </h3>
             <ul class="footer__nav-list">
-                <a href="" class="footer__nav-link">
-                    <li class="footer__nav-item">Message on Whatsapp</li>
-                </a>
-                <a href="" class="footer__nav-link">
-                    <li class="footer__nav-item">Email</li>
-                </a>
+                <li class="footer__nav-item">
+                <a href="/whatsapp" class="footer__nav-link">
+                    Message on Whatsapp
+                </a></li>
+                <li class="footer__nav-item">
+                <a href="/email" class="footer__nav-link">
+                    Email
+                </a></li>
+                <li class="footer__nav-item">
                 <a href="{{url_for('main.privacy')}}" class="footer__nav-link">
-                    <li class="footer__nav-item">Privacy Policy</li>
-                </a>
-                <a href="" class="footer__nav-link">
-                    <li class="footer__nav-item">Work for Us</li>
-                </a>
+                    Privacy Policy
+                </a></li>
+                <li class="footer__nav-item">
+                <a href="/work-for-us" class="footer__nav-link">
+                    Work for Us
+                </a></li>
             </ul>
         </div>
     </div>
     <div class='footer__socials-wrapper'> 
         <ul class="footer__socials-content">
-            <a href="" class="footer__socials-link">
-                <li class="footer__socials-item">
+            <li class="footer__socials-item">
+            <a href="https://www.twitter.com" class="footer__socials-link">
                     Twitter
-                </li>
             </a>
-            <a href="" class="footer__socials-link">
-                <li class="footer__socials-item">
+            </li>
+            <li class="footer__socials-item">
+            <a href="https://www.facebook.com" class="footer__socials-link">
                     Facebook
-                </li>
             </a>
-            <a href="" class="footer__socials-link">
-                <li class="footer__socials-item">
+            </li>
+            <li class="footer__socials-item">
+            <a href="https://www.instagram.com" class="footer__socials-link">
                     Instagram
-                </li>
             </a>
+            </li>
         </ul>
     </div>
     <div class='footer__copy-wrapper'> 

@@ -85,7 +85,10 @@
         <div class="profile__collection-list">
             {% for item in user.collection %}
                 <a href="{{url_for('product.product_page', id=item.id)}}">
-                    <img src="{{item.img_url}}" alt="{{item.title}}, {{item.artist}}" title="{{item.title}}, {{item.artist}}">
+                    <img src="{{item.img_url}}" 
+                    alt="{{item.title}}, {{item.artist}}" 
+                    title="{{item.title}}, {{item.artist}}"
+                    loading="lazy">
                 </a>
             {% endfor %}
         </div>

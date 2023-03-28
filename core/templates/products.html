@@ -16,7 +16,7 @@
         </div>
         <div class="sort__form-wrapper">
             <form action="" method="GET" class="sort__form">
-                <select name="sort" id="sort">
+                <select name="sort" id="sort" title="Sort Products">
                     <option value="artist">Artist Name</option>
                     <option value="title">Title</option>
                     <option value="price">Price (L-H)</option>
@@ -30,7 +30,8 @@
             <div class="product__img-wrapper">
                 <img src="{{product.img_url}}" 
                 alt="{{product.title}}, {{product.artist}}" 
-                class="product__img">
+                class="product__img"
+                loading="lazy">
             </div>
             <div class="product_details">
                     <p>{{product.title}}</p>

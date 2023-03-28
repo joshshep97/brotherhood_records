@@ -164,9 +164,16 @@ select {
     background: #555;
   }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:840px) {
     .container {
         margin: 0;
+        padding: 1rem 2rem;
     }
 }
 
+@media screen and (max-width:500px) {
+    .container {
+        padding: 1rem;
+    }
+}
+    
