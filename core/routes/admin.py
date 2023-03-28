@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, redirect, flash
 from flask_login import current_user, login_required
 
-from ..models import Product
+from ..models import Product, User
 from ..datebase import db
 
 admin = Blueprint('admin', __name__)
@@ -13,7 +13,8 @@ def index():
 
         context = {
             'title': 'Admin | Home',
-            'records': Product.query.all()
+            'records': Product.query.all(),
+            'users': User.query.all()
         }
 
         return render_template(
