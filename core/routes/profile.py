@@ -35,6 +35,8 @@ def get_profile(id):
         
         if genre_exists:
             flash('You have already added this genre', 'error')
+            return redirect(url_for('profile.get_profile', 
+                            id = current_user.id))
         else:
             db.session.add(f_genre)
             db.session.commit()
