@@ -110,7 +110,7 @@ def remove_from_collection(id):
         flash('Product removed from your collection','success')
         return redirect(url_for('profile.get_profile', id=current_user.id))
     
-DOMAIN = 'http://127.0.0.1:5000'
+DOMAIN = 'https://brotherhood-records.onrender.com/'
 
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 
