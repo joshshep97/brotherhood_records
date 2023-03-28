@@ -35,6 +35,7 @@ def get_products():
     )
 
 @product.route('/<int:id>/')
+@login_required
 def product_page(id):
     selected_product = Product.query.filter_by(
         id=id

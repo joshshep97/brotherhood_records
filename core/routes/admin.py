@@ -14,7 +14,7 @@ def index():
         context = {
             'title': 'Admin | Home',
             'records': Product.query.all(),
-            'users': User.query.all()
+            'users': User.query.all(),
         }
 
         return render_template(
