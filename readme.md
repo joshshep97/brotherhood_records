@@ -1,4 +1,4 @@
-<h1 align="center">Twitter Top 50</h1>
+<h1 align="center">Brotherhood Records E-Commerce Site</h1>
 
 <p align="center"><project-description>
  When I was 17 years old, I started a business with my Dad. We would go to carboot sales and buy secondhand vinyl records and resell them for a profit.
