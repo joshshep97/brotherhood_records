@@ -63,9 +63,18 @@ class User(UserMixin, db.Model):
             'email': self.email,
             'is_admin': self.is_admin,
             'date_created': self.date_created,
+            'favorite_genres': [genre.to_dict() for genre in self.favorite_genres],
+            'collection': [product.to_dict() for product in self.collection]
         }
 
 class FavoriteGenre(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'user_id': self.user_id
+        }

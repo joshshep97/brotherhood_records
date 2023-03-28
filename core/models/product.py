@@ -49,5 +49,6 @@ class Product(db.Model):
         'img_url': self.img_url
     }
 
+
     def __repr__(self):
         return f'{self.title} - {self.artist}'
