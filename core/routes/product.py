@@ -27,7 +27,6 @@ def get_products():
         .order_by(sort)
         .all(),
         'genres': get_genres(),
-        'collection': current_user.collection
     }
 
     return render_template(
