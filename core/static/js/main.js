@@ -9,6 +9,15 @@ function openNav() {
 
 mobileNavBtn.addEventListener('click', openNav);
 
+// spinner
+
+spinner = document.querySelector('.preloader__wrapper');
+
+
+window.addEventListener("load", () => {
+    spinner.style.display = 'none';
+})
+
 // Close flash
 
 closeFlash = document.getElementById('flash__close-svg');
