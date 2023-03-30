@@ -59,6 +59,10 @@
     object-fit: contain;
 }
 
+.product__img:hover {
+    animation: expand 1.4s;
+}
+
 .product__page-wrapper {
     display: flex;
     align-items: stretch;
@@ -127,7 +131,7 @@
     background-color: var(--main);
 } .genre__search-link{
     font-size: 1.2rem;
-    padding: .5rem;;
+    padding: .5rem;
 }.genre__search-link:hover {
     color: #020202;
     text-decoration: underline;

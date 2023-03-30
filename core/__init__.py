@@ -29,7 +29,7 @@ def create_app():
     app = Flask(__name__)
     # app configuration
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('TEST_DB_URL')
     app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)

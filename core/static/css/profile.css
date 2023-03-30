@@ -120,6 +120,19 @@ td {
 }
 
 
+
+@keyframes expand {
+    from {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 @media screen and (max-width:600px){
     td {
         padding: 0.4rem;

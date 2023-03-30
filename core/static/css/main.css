@@ -22,7 +22,7 @@ h1 {
 
 a {
     text-decoration: none;
-    color: var(--dark)
+    color: var(--dark);
 }
 
 :root {

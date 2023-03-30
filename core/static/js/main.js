@@ -4,9 +4,19 @@ mobileNav = document.getElementById('mobileNav');
 
 function openNav() {
     mobileNav.classList.toggle('mobile__nav-active');
-    mobileNavBtn.classList.toggle('toggle');
+    triggerSrc = mobileNavBtn.getAttribute('src');
+    if (triggerSrc == '/static/icons/bars-solid.svg') {
+        mobileNavBtn.setAttribute('src', '/static/icons/menu_close.svg');
+        mobileNavBtn.classList.add('open')
+        mobileNavBtn.classList.remove('closed')
+    } else {
+        mobileNavBtn.setAttribute('src', '/static/icons/bars-solid.svg');
+        mobileNavBtn.classList.remove('open')
+        mobileNavBtn.classList.add('closed')
+    }
 }
 
+console.log(mobileNavBtn.getAttribute('src'))
 mobileNavBtn.addEventListener('click', openNav);
 
 
