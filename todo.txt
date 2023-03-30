@@ -1,1 +1,4 @@
-After all:
+- add forgot password
+- add confirmation email
+- view other's collections
+- more social features?

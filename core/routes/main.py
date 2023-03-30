@@ -7,8 +7,15 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-
     return redirect(url_for('product.get_products'))
+
+    # context = {
+    #     'title': 'Brotherhood Records | Home',
+    # }
+    # return render_template(
+    #     'index.html',
+    #     **context
+    # )
 
 @main.route('/success/')
 def success():

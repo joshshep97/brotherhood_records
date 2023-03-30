@@ -110,7 +110,7 @@
 } .genre__search-title {
     text-align: center;
     padding-bottom: 1rem;
-} .genre__search-title h3 {
+} .genre__search-title h2 {
     font-size: 1.5rem;
     color: var(--dark);
     letter-spacing: 0.03em;
