@@ -21,6 +21,7 @@ DB_NAME = 'database.db'
 # finds env in filesystem for development
 find_dotenv()
 
+
 def create_app():
 
     # loads environment variables for development
@@ -40,12 +41,12 @@ def create_app():
     @app.route('/test')
     def test():
         return 'success'
-    
+
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template('404.html'), 404
 
-    # 
+    #
     # ===== REGISTER ROUTES =====
 
     from .routes import api as api_bp
@@ -56,7 +57,7 @@ def create_app():
 
     from .routes import auth as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
-    
+
     from .routes import profile as profile_bp
     app.register_blueprint(profile_bp, url_prefix='/profile')
 
@@ -73,26 +74,28 @@ def create_app():
 
     # if admin account doesn't exist, one will be created
     admin_exists = bool(User.query.filter_by(
-        username = 'admin'
+        username='admin'
     ).first())
     if not admin_exists:
         admin = User(
-                    username = os.environ.get('admin_username'),
-                    email = os.environ.get('admin_email'),
-                    password = generate_password_hash(os.environ.get('admin_password'), method='sha256'),
-                    is_admin = True,
-                    name = 'Admin'
-                )
+            username=os.environ.get('admin_username'),
+            email=os.environ.get('admin_email'),
+            password=generate_password_hash(
+                os.environ.get('admin_password'), method='sha256'),
+            is_admin=True,
+            name='Admin'
+        )
 
         db.session.add(admin)
         db.session.commit()
 
     # Create flask login instance
     login_manager.init_app(app)
+
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
-    
+
     # define login manager
 
     login_manager.login_view = 'auth.login'
@@ -101,7 +104,9 @@ def create_app():
 
     return app
 
-# 
+#
+
+
 def create_database(app):
     if not path.exists('core/' + DB_NAME):
         with app.app_context():

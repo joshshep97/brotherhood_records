@@ -1,27 +1,28 @@
 from . import db
 
+
 class Product(db.Model):
     id = db.Column(
-        db.Integer, 
+        db.Integer,
         primary_key=True
     )
     title = db.Column(
-        db.String(255), 
+        db.String(255),
         nullable=False
     )
     artist = db.Column(
-        db.String(255), 
+        db.String(255),
         nullable=False
     )
     genre = db.Column(
-        db.String(50), 
+        db.String(50),
         nullable=False
     )
     price = db.Column(
         db.Float,
         nullable=False
     )
-    
+
     price_id = db.Column(
         db.String,
         nullable=False
@@ -39,16 +40,15 @@ class Product(db.Model):
 
     def to_dict(self):
         return {
-        'id': self.id,
-        'title': self.title,
-        'artist': self.artist,
-        'genre': self.genre,
-        'price': self.price,
-        'price_id': self.price_id,
-        'release_year': self.release_year,
-        'img_url': self.img_url
-    }
-
+            'id': self.id,
+            'title': self.title,
+            'artist': self.artist,
+            'genre': self.genre,
+            'price': self.price,
+            'price_id': self.price_id,
+            'release_year': self.release_year,
+            'img_url': self.img_url
+        }
 
     def __repr__(self):
         return f'{self.title} - {self.artist}'

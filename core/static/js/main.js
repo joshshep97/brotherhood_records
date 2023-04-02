@@ -32,3 +32,25 @@ if (document.body.contains(flashMessage)){
 }
 
 
+// side items in on scroll
+const sliders = document.querySelectorAll(".slider");
+
+appearOptions = {
+  rootMargin: "-80px 0px -80px 0px",
+  threshold: 0,
+};
+
+const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      entry.target.classList.remove("appear"); 
+      return;
+    } else {
+      entry.target.classList.add("appear");
+      appearOnScroll.unobserve(entry.target);
+    }
+  });
+}, appearOptions);
+sliders.forEach((slider) => {
+  appearOnScroll.observe(slider);
+});

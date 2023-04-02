@@ -7,6 +7,7 @@ from flask_login import current_user, login_required
 
 api = Blueprint('api', __name__)
 
+
 @api.route('/user/<int:id>/', methods=['GET'])
 @login_required
 def get_user(id):
@@ -17,6 +18,7 @@ def get_user(id):
         user = User.query.filter_by(id=id).first()
 
         return jsonify(user.to_dict())
+
 
 @api.route('/user/all', methods=['GET'])
 @login_required
@@ -33,10 +35,12 @@ def get_product(id):
     product = Product.query.filter_by(id=id).first()
     return jsonify(product.to_dict())
 
+
 @api.route('/products/all', methods=['GET'])
 def get_all_products():
     products = Product.query.all()
     return jsonify([product.to_dict() for product in products])
+
 
 @api.route('/product/add', methods=['GET', 'POST'])
 def add_product():

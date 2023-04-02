@@ -17,11 +17,12 @@ def get_genres():
         genres.add(product.genre)
     return list(genres)
 
+
 @product.route('/')
 def get_products():
     sort = request.args.get('sort')
 
-    context={
+    context = {
         'title': 'Products | Home',
         'products': Product.query
         .order_by(sort)
@@ -33,6 +34,7 @@ def get_products():
         'products.html',
         **context
     )
+
 
 @product.route('/<int:id>/')
 @login_required
@@ -52,11 +54,12 @@ def product_page(id):
         **context
     )
 
+
 @product.route('/genre/<genre>/')
 def product_by_genre(genre):
     sort = request.args.get('sort')
 
-    context={
+    context = {
         'title': 'Products | Home',
         'products': Product.query
         .filter_by(genre=genre)
@@ -70,6 +73,7 @@ def product_by_genre(genre):
         **context
     )
 
+
 @product.route('/artist/<artist>/')
 def get_artist(artist):
     artist_products = Product.query.filter_by(artist=artist).all()
@@ -77,14 +81,14 @@ def get_artist(artist):
         'title': f'Products | {Product.artist}',
         'products': artist_products,
         'genres': get_genres(),
-    } 
+    }
     return render_template(
         'products.html',
         **context
     )
 
-@product.route('add-to-collection/<int:id>/')
 
+@product.route('add-to-collection/<int:id>/')
 @login_required
 def add_to_collection(id):
     product = Product.query.filter_by(id=id).first()
@@ -94,11 +98,11 @@ def add_to_collection(id):
     else:
         current_user.collection.append(product)
         db.session.commit()
-        flash('Product added to your collection','success')
+        flash('Product added to your collection', 'success')
         return redirect(url_for('profile.get_profile', id=current_user.id))
 
-@product.route('/remove-from-collection/<int:id>/')
 
+@product.route('/remove-from-collection/<int:id>/')
 @login_required
 def remove_from_collection(id):
     product = Product.query.filter_by(id=id).first()
@@ -108,9 +112,10 @@ def remove_from_collection(id):
     else:
         current_user.collection.remove(product)
         db.session.commit()
-        flash('Product removed from your collection','success')
+        flash('Product removed from your collection', 'success')
         return redirect(url_for('profile.get_profile', id=current_user.id))
-    
+
+
 DOMAIN = 'https://brotherhood-records.onrender.com/'
 
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
@@ -124,16 +129,16 @@ def create_checkout_session(id):
 
     try:
         checkout_session = stripe.checkout.Session.create(
-            customer_email = current_user.email,
+            customer_email=current_user.email,
             submit_type='pay',
             billing_address_collection='auto',
             shipping_address_collection={
-            'allowed_countries': ['GB']
+                'allowed_countries': ['GB']
             },
             line_items=[
                 {
-                'price': price_id,
-                'quantity': 1,
+                    'price': price_id,
+                    'quantity': 1,
                 },
             ],
             mode='payment',
@@ -148,4 +153,3 @@ def create_checkout_session(id):
         checkout_session.url,
         code=303
     )
-

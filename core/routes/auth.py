@@ -24,19 +24,20 @@ def login():
                 if user.is_admin == True:
                     flash('Logged in as admin', 'success')
                     return redirect(url_for('admin.index'))
-                    
+
                 else:
                     return redirect(url_for('main.index'))
             else:
                 flash('Incorrect credentials, please try again', 'error')
-        else: 
+        else:
             flash('Incorrect credentials, please try again', 'error')
 
     return render_template(
         'login.html',
         title='Login',
-        user = current_user
+        user=current_user
     )
+
 
 @auth.route('/register/', methods=['GET', 'POST'])
 def register():
@@ -50,8 +51,8 @@ def register():
         password_confirmation = request.form.get('password_confirmation')
 
         is_validated = False
-        username_exists = bool(User.query.filter_by(username = username).first())
-        email_exists = bool(User.query.filter_by(email = email).first())
+        username_exists = bool(User.query.filter_by(username=username).first())
+        email_exists = bool(User.query.filter_by(email=email).first())
 
         # username validation
         if username == '':
@@ -75,27 +76,28 @@ def register():
             is_validated = False
             flash('Password must include at least one numbber', 'error')
         elif re.search('["£$@#~!?"]', password) is None:
-            is_validated = False 
-            flash('Password must include one of the special characters: £ $ @ # ~ ! ?', 'error')
+            is_validated = False
+            flash(
+                'Password must include one of the special characters: £ $ @ # ~ ! ?', 'error')
         elif password != password_confirmation:
             is_validated = False
             flash('passwords must match', 'error')
         else:
             is_validated = True
-        
+
         if is_validated:
             usr = User(
-                username = username,
-                email = email,
-                password = generate_password_hash(password, method='sha256')
+                username=username,
+                email=email,
+                password=generate_password_hash(password, method='sha256')
             )
 
             db.session.add(usr)
             db.session.commit()
             flash('Account Created Successfully', 'success')
             return redirect(url_for('auth.login'))
-    
-    context={
+
+    context = {
         'title': 'Register | Brotherhood Records',
     }
 
@@ -103,6 +105,7 @@ def register():
         'register.html',
         **context
     )
+
 
 @auth.route('/logout/')
 def logout():

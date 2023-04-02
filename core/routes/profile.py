@@ -1,14 +1,14 @@
 from flask import (
-    Blueprint, 
-    url_for, 
-    render_template, 
-    redirect, 
-    request, 
+    Blueprint,
+    url_for,
+    render_template,
+    redirect,
+    request,
     flash
 )
 
 from flask_login import current_user, login_required
-from werkzeug.security import (check_password_hash, 
+from werkzeug.security import (check_password_hash,
                                generate_password_hash)
 
 from ..models import User, FavoriteGenre
@@ -23,27 +23,27 @@ profile = Blueprint('profile', __name__)
 @login_required
 def get_profile(id):
     if request.method == 'POST':
-        genre = request.form.get('genre').title( )
+        genre = request.form.get('genre').title()
 
-        f_genre = FavoriteGenre(name=genre, 
+        f_genre = FavoriteGenre(name=genre,
                                 user=current_user)
 
         genre_exists = bool(FavoriteGenre.query.filter_by(
-            user=current_user, 
+            user=current_user,
             name=f_genre.name
         ).first())
-        
+
         if genre_exists:
             flash('You have already added this genre', 'error')
-            return redirect(url_for('profile.get_profile', 
-                            id = current_user.id))
+            return redirect(url_for('profile.get_profile',
+                            id=current_user.id))
         else:
             db.session.add(f_genre)
             db.session.commit()
             flash('Genre Added Successfully', 'success')
 
     if id != current_user.id:
-        return redirect(url_for('profile.get_profile', 
+        return redirect(url_for('profile.get_profile',
                                 id=current_user.id))
     else:
         context = {
@@ -61,13 +61,13 @@ def get_profile(id):
             )
         else:
             flash(
-                'You must be loggin in to view this page', 
+                'You must be loggin in to view this page',
                 'error'
             )
             return redirect(url_for('main.index'))
-    
 
-@profile.route('/<int:id>/edit_name/', 
+
+@profile.route('/<int:id>/edit_name/',
                methods=['GET', 'POST'])
 @login_required
 def edit_name(id):
@@ -80,9 +80,9 @@ def edit_name(id):
         db.session.commit()
         flash('Name Changed Successfully')
 
-        return redirect(url_for('profile.get_profile', 
-                                id = current_user.id))
-    
+        return redirect(url_for('profile.get_profile',
+                                id=current_user.id))
+
     context = {
         'title': 'Edit Name',
         'user': current_user,
@@ -95,7 +95,8 @@ def edit_name(id):
         **context
     )
 
-@profile.route('/<int:id>/edit_email/', 
+
+@profile.route('/<int:id>/edit_email/',
                methods=['GET', 'POST'])
 @login_required
 def edit_email(id):
@@ -108,9 +109,9 @@ def edit_email(id):
         db.session.commit()
         flash('Email Changed Successfully')
 
-        return redirect(url_for('profile.get_profile', 
-                                id = current_user.id))
-    
+        return redirect(url_for('profile.get_profile',
+                                id=current_user.id))
+
     context = {
         'title': 'Edit Email',
         'user': current_user,
@@ -123,13 +124,14 @@ def edit_email(id):
         **context
     )
 
-@profile.route('/<int:id>/edit_username/', 
+
+@profile.route('/<int:id>/edit_username/',
                methods=['GET', 'POST'])
 @login_required
 def edit_username(id):
     if id != current_user.id:
         return redirect(
-            url_for('profile.edit_username', 
+            url_for('profile.edit_username',
                     id=current_user.id)
         )
     else:
@@ -141,10 +143,10 @@ def edit_username(id):
             flash('Username Changed Successfully')
 
             return redirect(
-                url_for('profile.get_profile', 
-                        id = current_user.id)
+                url_for('profile.get_profile',
+                        id=current_user.id)
             )
-        
+
         context = {
             'title': 'Edit Username',
             'user': current_user,
@@ -156,6 +158,7 @@ def edit_username(id):
             'edit_profile.html',
             **context
         )
+
 
 @profile.route(
     '/<int:id>/change_password/',
@@ -174,7 +177,7 @@ def change_password(id):
             new_password = request.form.get('new_password')
 
             if not check_password_hash(
-                current_user.password, 
+                current_user.password,
                 current_password
             ):
                 flash('Password is incorrect', 'error')
@@ -189,15 +192,15 @@ def change_password(id):
                 elif re.search('[0-9]', new_password) is None:
                     password_is_valid = False
                     flash(
-                        'Password must include at least one numbber', 
+                        'Password must include at least one numbber',
                         'error'
                     )
                 elif re.search('["£$@#~!?"]', new_password) is None:
-                    password_is_valid = False 
+                    password_is_valid = False
                     flash(
                         '''Password must include one of the following 
                         special characters: £ $ @ # ~ ! ?
-                        ''', 
+                        ''',
                         'error'
                     )
                 else:
@@ -213,8 +216,8 @@ def change_password(id):
 
                 return redirect(
                     url_for(
-                    'profile.get_profile',
-                    id=current_user.id
+                        'profile.get_profile',
+                        id=current_user.id
                     )
                 )
 
@@ -225,4 +228,3 @@ def change_password(id):
             'change_password.html',
             **context
         )
-    
